@@ -106,6 +106,9 @@ class FirebaseRoom implements RoomConn {
   }
 }
 
+/** Juego al que pertenece la sala: ¡Fakeado! y ¡Fakeado! Fallas comparten base de datos */
+const GAME = 'fallas';
+
 /** Crea una sala nueva con un código libre */
 export async function createOnlineRoom(hostPlays: boolean, settings: Settings): Promise<RoomConn> {
   const uid = await ensure();
@@ -117,7 +120,7 @@ export async function createOnlineRoom(hostPlays: boolean, settings: Settings): 
       // sala libre o abandonada hace más de 6 horas
       if (cur && now - (cur.createdAt || 0) < 6 * 3600e3) return;
       const room: RoomState = { code, hostId: uid, hostPlays, status: 'lobby', createdAt: now, settings, players: {} };
-      return room;
+      return { ...room, juego: GAME } as RoomState;
     });
     if (res.committed) {
       onDisconnect(ref(db, `rooms/${code}/hostOnline`)).set(false);
@@ -136,6 +139,8 @@ export async function joinOnlineRoom(code: string): Promise<RoomConn | JoinError
   const snap = await get(ref(db, `rooms/${c}`));
   const raw = snap.val();
   if (!raw) return 'not-found';
+  // una sala del otro juego no existe para este
+  if ((raw.juego || 'fakeado') !== GAME) return 'not-found';
   const isHost = raw.hostId === uid;
   const already = !!raw.players?.[uid];
   if (!isHost && !already) {

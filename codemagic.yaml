@@ -1,13 +1,11 @@
 # Compilación en la nube con Codemagic (https://codemagic.io) — no necesitas Mac.
-# Antes de usarlo, sigue la GUIA.md: grupos de variables "firebase", "google_play" y "firebase_deploy",
+# Antes de usarlo, sigue la GUIA.md: grupos de variables "google_play" y "firebase_deploy" (la conexión de Firebase va en .env.production),
 # la llave de Android "fakeado_upload" (la misma que ¡Fakeado!) y la integración con App Store Connect llamada "Fakeado ASC".
 
 definitions:
   base_env: &base_env
     node: 22
     java: 21
-    groups:
-      - firebase
   install: &install
     name: Instalar dependencias y pasar pruebas
     script: |
@@ -24,7 +22,6 @@ workflows:
       android_signing:
         - fakeado_upload
       groups:
-        - firebase
         - google_play
     scripts:
       - *install
@@ -115,7 +112,6 @@ workflows:
     environment:
       <<: *base_env
       groups:
-        - firebase
         - firebase_deploy
     scripts:
       - *install
@@ -125,5 +121,5 @@ workflows:
         script: |
           echo "$FIREBASE_SERVICE_ACCOUNT" > "$CM_BUILD_DIR/firebase-sa.json"
           export GOOGLE_APPLICATION_CREDENTIALS="$CM_BUILD_DIR/firebase-sa.json"
-          npx --yes firebase-tools@latest deploy --only hosting,database --project "$VITE_FB_PROJECT_ID" --non-interactive
+          npx --yes firebase-tools@latest deploy --only hosting,database --project fakeado-2aaf4 --non-interactive
           rm -f "$CM_BUILD_DIR/firebase-sa.json"
