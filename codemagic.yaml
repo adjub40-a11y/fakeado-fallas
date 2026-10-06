@@ -1,0 +1,129 @@
+# Compilación en la nube con Codemagic (https://codemagic.io) — no necesitas Mac.
+# Antes de usarlo, sigue la GUIA.md: grupos de variables "firebase", "google_play" y "firebase_deploy",
+# la llave de Android "fakeado_upload" (la misma que ¡Fakeado!) y la integración con App Store Connect llamada "Fakeado ASC".
+
+definitions:
+  base_env: &base_env
+    node: 22
+    java: 21
+    groups:
+      - firebase
+  install: &install
+    name: Instalar dependencias y pasar pruebas
+    script: |
+      npm ci
+      npm test
+
+workflows:
+  android-release:
+    name: Android · Google Play
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+    environment:
+      <<: *base_env
+      android_signing:
+        - fakeado_upload
+      groups:
+        - firebase
+        - google_play
+    scripts:
+      - *install
+      - name: Compilar la web del juego
+        script: npm run build
+      - name: Copiar al proyecto Android
+        script: npx cap sync android
+      - name: Compilar el paquete .aab firmado
+        script: |
+          cd android
+          chmod +x gradlew
+          ./gradlew bundleRelease
+    artifacts:
+      - android/app/build/outputs/bundle/release/*.aab
+    publishing:
+      google_play:
+        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+        track: internal
+        submit_as_draft: true
+
+  android-aab-only:
+    name: Android · solo generar .aab (para la primera subida manual)
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+    environment:
+      <<: *base_env
+      android_signing:
+        - fakeado_upload
+    scripts:
+      - *install
+      - name: Compilar la web del juego
+        script: npm run build
+      - name: Copiar al proyecto Android
+        script: npx cap sync android
+      - name: Compilar el paquete .aab firmado
+        script: |
+          cd android
+          chmod +x gradlew
+          ./gradlew bundleRelease
+    artifacts:
+      - android/app/build/outputs/bundle/release/*.aab
+
+  ios-release:
+    name: iOS · App Store (TestFlight)
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+    integrations:
+      app_store_connect: Fakeado ASC
+    environment:
+      <<: *base_env
+      xcode: latest
+      cocoapods: default
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: es.fakeado.fallas
+      vars:
+        # Número que App Store Connect da a tu app (Información de la app > Apple ID)
+        APP_STORE_APPLE_ID: 0000000000
+    scripts:
+      - *install
+      - name: Compilar la web del juego
+        script: npm run build
+      - name: Copiar al proyecto iOS
+        script: npx cap sync ios
+      - name: Instalar dependencias nativas
+        script: cd ios/App && pod install
+      - name: Aplicar firma
+        script: xcode-project use-profiles
+      - name: Número de compilación
+        script: |
+          LATEST=$(app-store-connect get-latest-testflight-build-number "$APP_STORE_APPLE_ID" 2>/dev/null || echo 0)
+          NEW=$((LATEST + 1))
+          sed -i '' "s/CURRENT_PROJECT_VERSION = [0-9]*;/CURRENT_PROJECT_VERSION = $NEW;/g" ios/App/App.xcodeproj/project.pbxproj
+          echo "Compilación $NEW"
+      - name: Compilar el .ipa
+        script: xcode-project build-ipa --workspace ios/App/App.xcworkspace --scheme App
+    artifacts:
+      - build/ios/ipa/*.ipa
+    publishing:
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: true
+
+  web-deploy:
+    name: Web (PC) y reglas de Firebase
+    instance_type: mac_mini_m2
+    max_build_duration: 30
+    environment:
+      <<: *base_env
+      groups:
+        - firebase
+        - firebase_deploy
+    scripts:
+      - *install
+      - name: Compilar la web
+        script: npm run build
+      - name: Publicar en Firebase Hosting y aplicar reglas de la base de datos
+        script: |
+          echo "$FIREBASE_SERVICE_ACCOUNT" > "$CM_BUILD_DIR/firebase-sa.json"
+          export GOOGLE_APPLICATION_CREDENTIALS="$CM_BUILD_DIR/firebase-sa.json"
+          npx --yes firebase-tools@latest deploy --only hosting,database --project "$VITE_FB_PROJECT_ID" --non-interactive
+          rm -f "$CM_BUILD_DIR/firebase-sa.json"

@@ -1,0 +1,5 @@
+himne.mp3 — Himne de l'Exposició (Himno de la Comunitat Valenciana), versión instrumental.
+Música: José Serrano Simeón (1909), obra en dominio público desde el 1 de enero de 2022.
+Grabación: Wikimedia Commons, "File:Himne de l'Exposició.ogg", publicada con dedicación CC0 1.0 (dominio público).
+Origen indicado en Commons: grabación "Himno de Valencia (solo música)" publicada en la web de la Generalitat Valenciana (elsfurs.gva.es).
+Convertida de Ogg Vorbis a MP3 y normalizada de volumen para que suene en Android, iPhone y navegador.

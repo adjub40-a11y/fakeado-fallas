@@ -1,0 +1,61 @@
+{
+  "rules": {
+    "rooms": {
+      "$code": {
+        ".read": "auth != null",
+        ".write": "auth != null && (data.child('hostId').val() === auth.uid || ((!data.exists() || now - data.child('createdAt').val() > 21600000) && newData.child('hostId').val() === auth.uid))",
+        ".validate": "$code.length === 4",
+        "players": {
+          "$pid": {
+            ".write": "auth != null && auth.uid === $pid && (data.exists() || root.child('rooms').child($code).child('status').val() === 'lobby')",
+            "name": {
+              ".validate": "newData.isString() && newData.val().length >= 1 && newData.val().length <= 16"
+            },
+            "avatar": {
+              ".validate": "newData.isString() && newData.val().length <= 16"
+            },
+            "level": {
+              ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 4"
+            },
+            "score": {
+              ".validate": "newData.isNumber() && (auth.uid === root.child('rooms').child($code).child('hostId').val() || (!data.exists() && newData.val() === 0) || newData.val() === data.val())"
+            },
+            "joinedAt": {
+              ".validate": "newData.isNumber()"
+            },
+            "online": {
+              ".validate": "newData.isBoolean()"
+            },
+            "$other": {
+              ".validate": false
+            },
+            ".validate": "newData.hasChildren(['name', 'avatar', 'level'])"
+          }
+        },
+        "lies": {
+          "$pid": {
+            ".write": "auth != null && auth.uid === $pid && root.child('rooms').child($code).child('players').child($pid).exists() && root.child('rooms').child($code).child('game/phase').val() === 'lie'",
+            ".validate": "newData.hasChildren(['text', 'q']) && newData.child('text').isString() && newData.child('text').val().length <= 40 && newData.child('q').isNumber()"
+          }
+        },
+        "votes": {
+          "$pid": {
+            ".write": "auth != null && auth.uid === $pid && root.child('rooms').child($code).child('players').child($pid).exists() && root.child('rooms').child($code).child('game/phase').val() === 'vote'",
+            ".validate": "newData.hasChildren(['o', 'q']) && newData.child('o').isString() && newData.child('q').isNumber()"
+          }
+        },
+        "rejects": {
+          "$pid": {
+            ".write": "auth != null && auth.uid === $pid && !newData.exists()"
+          }
+        }
+      }
+    },
+    "secrets": {
+      "$code": {
+        ".read": "auth != null && root.child('rooms').child($code).child('hostId').val() === auth.uid",
+        ".write": "auth != null && root.child('rooms').child($code).child('hostId').val() === auth.uid"
+      }
+    }
+  }
+}

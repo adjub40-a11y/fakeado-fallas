@@ -1,0 +1,21 @@
+# nivel | pregunta (con ___) | respuesta | alias (;) | mentiras de la casa (;) | mentiras peques (;) | dato curioso
+1 | Cada figura de una falla se llama ___ | ninot | ninots;muñeco | pelele;títere;maniquí | robot;peluche;cromo | "Ninot" significa muñeco en valenciano.
+1 | El ninot que el público salva del fuego cada año es el ninot ___ | indultat | indultado | salvat;premiat;guardat | mágico;dormido;volador | La gente lo elige votando en la Exposición del Ninot.
+1 | La falla más alta de la historia medía ___ metros | 33 | treinta y tres | 12;60;100 | 5;1.000;2 | La plantó la falla Na Jordana en 2001.
+1 | Antes los ninots eran de cartón; hoy muchos se hacen de ___ | corcho blanco | poliestireno;porexpán;corcho;porespán;poliespán | hierro;cristal;cerámica | queso;algodón;galleta | El corcho blanco pesa poco y se talla fácil, aunque cada vez se buscan materiales menos contaminantes.
+1 | Las fallas pequeñas que plantan los niños se llaman fallas ___ | infantiles | infantil | menudas;de bolsillo;enanas | de juguete;de chuches;de Lego | Cada comisión grande suele tener su propia falla infantil.
+2 | El primer ninot indultat se salvó en el año ___ | 1934 | mil novecientos treinta y cuatro | 1950;1909;1977 | - | Fue "Abuela y nieta", con 23.000 votos. La idea fue del artista Regino Mas.
+2 | El primer ninot indultat infantil, en 1963, representaba a Pinocho y ___ | Gepetto | Geppetto;Gepeto | Pepito Grillo;el Hada Azul;la ballena | - | Desde ese año se salva también un ninot de las fallas infantiles.
+2 | Los ninots indultados se guardan en el Museo ___ | Fallero | Faller;Museu Faller;Museo Fallero | del Ninot;de Bellas Artes;de la Ciudad | - | Está en la plaza de Monteolivete.
+2 | La falla más alta de la historia, de 33 metros, la plantó la comisión ___ en 2001 | Na Jordana | na jordana | Convento Jerusalén;Plaza del Pilar;Nou Campanar | - | Na Jordana ha ganado 12 veces el primer premio de Sección Especial.
+2 | Los artistas falleros trabajan casi todo el año en la Ciudad del Artista ___ | Fallero | Faller | Valenciano;del Ninot;Cremador | - | Allí está también el Museo del Artista Fallero.
+2 | La figura que corona lo más alto de una falla se llama el ___ | remate | remat | pináculo;tejado;penacho | - | Suele ser la figura más grande y la que más se ve desde lejos.
+2 | El libro con versos que explica la sátira de cada falla se llama ___ | llibret | libret;llibret de falla | almanac;rondalla;pergamí | - | Lo Rat Penat premia cada año los mejores llibrets.
+2 | En la ciudad de Valencia se plantan cerca de ___ fallas grandes | 400 | cuatrocientas;380 | 100;1.000;50 | - | Y casi otras tantas fallas infantiles.
+2 | Además del premio al mejor monumento, hay un premio al "ingenio y ___" | gracia | Gracia | humor;arte;tamaño | - | Premia la sátira con más chispa.
+3 | En 2026, el ninot indultat de las fallas grandes hablaba de la ___ | guerra | guerras | contaminación;vivienda;tecnología | - | Era de Sueca-Literato Azorín y se titulaba "Deixem la guerra en pau".
+3 | En 2025, en la Sección Especial compitieron ___ fallas | 9 | nueve | 25;3;50 | - | Son las fallas de mayor presupuesto de la ciudad.
+3 | La idea de que el público salvara un ninot del fuego fue del artista fallero Regino ___ | Mas | mas;Más | Mora;Mira;Moll | - | En 1934 la gente votó y se salvó "Abuela y nieta".
+1 | Los ninots de las fallas suelen ser figuras ___ que se ríen de la actualidad | graciosas | divertidas;cómicas;satíricas | tristes;serias;de terror | invisibles;mágicas;de chocolate | La sátira es una parte esencial de las fallas.
+1 | Para votar al ninot que se salva hay que ir a la Exposición del ___ | Ninot | ninot | Arte;Fuego;Museo | Juguete;Helado;Parque | Cada comisión lleva allí uno de sus ninots semanas antes de la plantà.
+1 | Las fallas grandes se montan con ayuda de ___ gigantes | grúas | grúa;gruas | escaleras;globos;caballos | dinosaurios;robots;cohetes | Algunas piezas pesan tanto que hace falta una grúa para colocarlas.

@@ -1,0 +1,9 @@
+# Curiosidades de premios (los ganadores año a año se generan desde src/data/historia.json)
+2 | La falla que más primeros premios de Sección Especial ha ganado es ___ | Convento Jerusalén | Convento Jerusalén-Matemático Marzal;Convento;Convent Jerusalem | Plaza del Pilar;Na Jordana;Mercado Central | - | Suma 19 primeros premios, los últimos en 2025 y 2026.
+2 | Nou Campanar ganó el primer premio de Especial seis años seguidos, de 2004 a ___ | 2009 | dos mil nueve | 2006;2012;2010 | - | Volvió a ganarlo en 2012: siete en total.
+2 | La segunda falla con más primeros premios de Especial, 16, es ___ | Plaza del Pilar | Pilar;Plaça del Pilar | Na Jordana;Mercado Central;Nou Campanar | - | Ganó tres años seguidos entre 1966 y 1968, y otros tres entre 1983 y 1985.
+2 | El monumento ganador de Especial en 2026 lo hizo el artista David Sánchez ___ | Llongo | llongo | Llopis;Lorente;Lloret | - | Fue para Convento Jerusalén, que repitió triunfo tras 2025.
+3 | El primer año de la Sección Especial, 1942, compitieron Barcas, Reina-Paz y ___ | Plaza del Mercado | Mercado;Mercado Central;Plaza del Mercado Central | Plaza del Pilar;Na Jordana;Ruzafa | - | Ese primer año ganó Barcas-Pascual y Genís.
+3 | La falla L'Antiga de Campanar está en la calle Monestir de ___ | Poblet | poblet | Montserrat;Santes Creus;Valldigna | - | Ha ganado cinco primeros premios de Especial.
+3 | En 2026, el segundo premio de Especial fue para L'Antiga de Campanar y el tercero para ___ | Na Jordana | na jordana | Plaza del Pilar;Nou Campanar;Mercado Central | - | El monumento de Na Jordana era del artista Mario Gual.
+3 | En 2026, el primer premio de ingenio y gracia de Especial fue para la falla ___ | Sueca-Literato Azorín | Sueca;Sueca-Literat Azorín | Plaza del Pilar;Duque de Calabria;Cuba-Literato Azorín | - | Su artista fue Pedro Santaeulalia, que también hizo el ninot indultat.

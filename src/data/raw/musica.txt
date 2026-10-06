@@ -1,0 +1,14 @@
+# nivel | pregunta (con ___) | respuesta | alias (;) | mentiras de la casa (;) | mentiras peques (;) | dato curioso
+1 | Cada comisión desfila acompañada de una banda de ___ | música | musica;músicos | bomberos;camareros;soldados | piratas;robots;payasos | Las comisiones contratan más de 300 bandas de música en Fallas.
+2 | El Himno Regional valenciano se estrenó en la Exposición Regional de ___ | 1909 | mil novecientos nueve | 1888;1929;1939 | - | Música del maestro José Serrano y letra de Maximiliano Thous.
+2 | La música del Himno Regional valenciano es del maestro José ___ | Serrano | serrano | Padilla;Iturbi;Rodrigo | - | Desde 2022 sus obras son de dominio público.
+2 | El pasodoble "El Fallero" lo compuso el maestro José ___ | Serrano | serrano | Padilla;Iturbi;Rodrigo | - | Es de 1929 y no falta en ningún pasacalle.
+2 | El famoso pasodoble "Paquito el ___" suena en todas las fallas | Chocolatero | chocolatero | Pastelero;Fallero;Churrero | - | Lo compuso Gustavo Pascual Falcó, de Cocentaina, en 1937.
+2 | El pasodoble "Amparito ___" es uno de los más tocados en Fallas | Roca | roca | Rosa;Ruiz;Rubio | - | Lo compuso Jaime Texidor en 1925.
+2 | El instrumento de viento que suena junto al tabalet es la ___ | dolçaina | dulzaina;dolsaina | gaita;flauta;trompeta | - | La dolçaina y el tabalet acompañan muchos actos tradicionales.
+2 | Las comisiones contratan en Fallas más de ___ bandas de música | 300 | trescientas | 50;1.000;30 | - | Las bandas acompañan los pasacalles, la Ofrenda y las despertàs.
+2 | La fiesta de baile nocturna bajo una carpa en la calle se llama ___ | verbena | verbenas;revetla | guateque;sarao;tómbola | - | Duran hasta altas horas en muchos barrios.
+3 | El pasodoble "Valencia", famoso en todo el mundo, lo compuso José ___ | Padilla | padilla | Serrano;Iturbi;Rodrigo | - | Es de 1924.
+3 | La letra del Himno Regional valenciano es de Maximiliano ___ | Thous | thous | Serrano;Llorente;Blasco | - | Se convirtió en himno oficial de la Comunitat Valenciana en 1981.
+1 | El tambor pequeño que acompaña a la dolçaina se llama ___ | tabalet | tabal;tamboret | bombo;timbal;caja | pandereta;sartén;tambor de juguete | Dolçaina y tabalet suenan en muchas fiestas valencianas.
+1 | Cuando la banda pasa por la calle tocando, se llama ___ | pasacalle | pasacalles;cercavila | concierto;desfile militar;procesión | carrera;fiesta de pijamas;recreo | Las comisiones recorren su barrio al ritmo de pasodobles.

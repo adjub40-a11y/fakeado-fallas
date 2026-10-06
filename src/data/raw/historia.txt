@@ -1,0 +1,17 @@
+# nivel | pregunta (con ___) | respuesta | alias (;) | mentiras de la casa (;) | mentiras peques (;) | dato curioso
+1 | Las Fallas se celebran en honor a San ___ | José | Jose;San José | Vicente;Pedro;Antonio | Nicolás;Juan;Pepito | San José es el patrón de los carpinteros, y las Fallas nacieron de sus hogueras.
+1 | Se cuenta que las Fallas empezaron con los ___ quemando maderas viejas | carpinteros | carpintero;gremio de carpinteros | panaderos;pescadores;herreros | bomberos;payasos;piratas | Quemaban restos del taller la víspera de San José, su patrón.
+1 | El 19 de marzo, día de San José, en España también es el Día del ___ | Padre | padre;Día del Padre | Abuelo;Niño;Carpintero | Gato;Helado;Pijama | Por eso muchas familias celebran el Día del Padre en plena cremà.
+2 | Los carpinteros colgaban sus candiles en invierno de un palo llamado ___ | parot | parots | estai;cresol;fanalet | - | Con la primavera ya no hacían falta y se quemaban la víspera de San José.
+2 | La palabra "falla" viene del latín "facula", que significa ___ | antorcha | antorchas;tea;teas | hoguera;chispa;farol | - | En valenciano medieval, las "falles" eran antorchas encendidas en lo alto de las torres de vigilancia.
+3 | El documento más antiguo que habla de una falla en Valencia es del año ___ | 1777 | mil setecientos setenta y siete | 1609;1850;1712 | - | Es un documento notarial del 19 de marzo de 1777 que menciona una falla en la calle San Narciso.
+2 | La UNESCO declaró las Fallas Patrimonio de la Humanidad en el año ___ | 2016 | dos mil dieciséis | 2010;2019;2008 | - | Entraron en la lista de Patrimonio Cultural Inmaterial en noviembre de 2016.
+2 | En 2020 las Fallas se suspendieron por ___ | la pandemia | pandemia;el coronavirus;coronavirus;covid;la covid | la lluvia;una huelga;falta de pólvora | - | Las fallas de 2020 se quemaron por fin en septiembre de 2021.
+3 | En 1886 no se plantaron fallas en la calle porque los falleros se negaron a pagar un ___ | impuesto | tasa;impuesto municipal | alquiler;peaje;seguro | - | La tasa por plantar subió a 60 pesetas y solo se plantaron dos fallas, en patios interiores.
+2 | La Junta Central Fallera se creó en el año ___ | 1939 | mil novecientos treinta y nueve | 1949;1928;1960 | - | Sustituyó al Comité Central Fallero, que se había creado en 1928.
+2 | La Sección Especial, la categoría de las fallas más grandes, nació en el año ___ | 1942 | mil novecientos cuarenta y dos | 1952;1931;1965 | - | El primer año compitieron solo tres fallas.
+3 | En 1898 las Fallas se suspendieron por la guerra de ___ | Cuba | guerra de Cuba | Marruecos;Francia;Portugal | - | La suspensión se anunció solo dos días antes de empezar la fiesta.
+2 | Las Fallas se han suspendido también en 1937, 1938 y 1939 por la ___ | Guerra Civil | guerra;guerra civil | gripe;sequía;crisis | - | En total se han suspendido seis veces en toda su historia.
+3 | Antes de Junta Central Fallera, las Fallas las organizaba el Comité Central Fallero, creado en ___ | 1928 | mil novecientos veintiocho | 1900;1936;1915 | - | En 1939 lo sustituyó la Junta Central Fallera.
+1 | Las Fallas son una fiesta de la ciudad de ___ | Valencia | València | Sevilla;Madrid;Alicante | Narnia;París;la Luna | También se celebran en más de cien pueblos de la Comunitat Valenciana.
+1 | Las Fallas son Patrimonio de la Humanidad según la ___ | UNESCO | Unesco | ONU;OTAN;FIFA | NASA;Disney;Liga | Las declaró Patrimonio Cultural Inmaterial en 2016.

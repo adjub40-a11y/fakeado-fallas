@@ -1,0 +1,13 @@
+# Curiosidades de Falleras Mayores (las preguntas año a año se generan desde src/data/historia.json)
+2 | La primera Fallera Mayor de Valencia fue elegida en el año ___ | 1931 | mil novecientos treinta y uno | 1945;1909;1921 | - | Fue Mª Àngels Algarra Azura.
+2 | En 1932 hubo ___ Falleras Mayores de Valencia | dos | 2 | tres;ninguna;cinco | - | Fueron Cruz Robles y Consuelo Cariñena.
+2 | La Fallera Mayor de Valencia de 2026 es Carmen ___ | Prades | prades | Prats;Pardo;Peris | - | Es de la falla Convento Jerusalén-Matemático Marzal.
+2 | Al ser elegida, el Ayuntamiento regala a cada Fallera Mayor una maceta de ___ | albahaca | alfàbega;alfábega | romero;geranio;claveles | - | El ninot indultat infantil de 2026 incluía al ceramista con la maceta de albahaca.
+2 | A la Fallera Mayor de Valencia la elige ___ | un jurado | jurado;jurat | votación popular;un sorteo;la Corte de Honor | - | Se anuncia a mediados de octubre.
+3 | María Luisa Aranda Sala fue Fallera Mayor de Valencia dos años seguidos: 1940 y ___ | 1941 | mil novecientos cuarenta y uno | 1942;1939;1945 | - | En 1940 encabezó una visita espontánea con flores a la Virgen, antecedente de la Ofrenda.
+3 | Consuelo Llobell fue Fallera Mayor de Valencia dos años por culpa de la ___ | pandemia | covid;coronavirus;la pandemia | lluvia;una huelga;una lesión | - | Su reinado duró de 2020 a 2021.
+3 | Carmen Serratosa Caturla fue Fallera Mayor Infantil en 1968 y Fallera Mayor de Valencia en ___ | 1976 | mil novecientos setenta y seis | 1980;1972;1985 | - | Es una de las pocas que ha sido Fallera Mayor de Valencia de niña y de mayor.
+3 | Elisa Lassala Bau fue Fallera Mayor Infantil en 1956 y Fallera Mayor de Valencia en ___ | 1970 | mil novecientos setenta | 1966;1975;1980 | - | Es una de las pocas que ha repetido de niña y de mayor.
+3 | Mónica Palmer Cuenca fue Fallera Mayor Infantil en 1982 y Fallera Mayor de Valencia en ___ | 1992 | mil novecientos noventa y dos | 1990;1995;1988 | - | Diez años después de su reinado infantil.
+3 | Sagrario Fernández de Córdoba fue Fallera Mayor Infantil en 1947 y Fallera Mayor de Valencia en ___ | 1957 | mil novecientos cincuenta y siete | 1950;1962;1949 | - | De nuevo, diez años después de ser infantil.
+3 | Teresa del Sacramento Agramunt fue la primera Fallera Mayor Infantil de Valencia, en ___ | 1940 | mil novecientos cuarenta | 1931;1945;1952 | - | Repitió en 1941.

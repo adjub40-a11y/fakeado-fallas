@@ -1,0 +1,14 @@
+# nivel | pregunta (con ___) | respuesta | alias (;) | mentiras de la casa (;) | mentiras peques (;) | dato curioso
+1 | Con el traje de gala, las falleras se peinan con ___ moños | tres | 3 | dos;cuatro;cinco | cien;uno;diez | Uno grande detrás y dos pequeños a los lados de la cabeza.
+1 | Encima del moño de atrás, la fallera lleva una ___ | peineta | pinta;peina | corona;diadema;tiara | gorra;pinza de la ropa;flor de plástico | La peineta corona el moño de atrás.
+1 | El traje de fallera se inspira en la ropa de las antiguas ___ valencianas | labradoras | labradora;campesinas;llauradores;llauradores valencianes | princesas;reinas;bailarinas | astronautas;piratas;sirenas | El traje de gala se llama "de labradora valenciana".
+2 | Los dos moños pequeños que la fallera lleva a los lados se llaman ___ | rodetes | rodets;rodete | rulos;caracoles;botones | - | Se sujetan con unos peinecitos llamados rascamonyos.
+2 | El peinado de tres moños recuerda a la Dama de ___ | Elche | Elx | Baza;Sagunto;Valencia | - | Esa escultura íbera tiene unos 2.500 años.
+2 | La tela de seda de los trajes de fallera se llama ___ | espolín | espolí;espolin | terciopelo;organza;satén | - | Se teje en telares y cada diseño tiene su propio dibujo.
+2 | El pantalón ancho del traje tradicional de fallero se llama ___ | saragüell | saraguell;zaragüelles;zaragüell;saragüells | bombatxo;pernil;faldetó | - | Viene de una palabra árabe, "sarawil".
+2 | El pañuelo que el fallero se ata a la cabeza se llama ___ | mocador | mocadors | barretina;boina;turbante | - | Va anudado y deja ver los colores bajo el sombrero.
+2 | Los peinecitos que sujetan los moños laterales se llaman ___ | rascamonyos | rascamoños;rascamonyo | pentinetes;agulletes;pinzetes | - | Son pequeños y van clavados en cada rodete.
+2 | Con el traje de fallero, Junta Central Fallera no permite llevar ___ | corbata | corbatas | chaleco;faja;sombrero | - | Tampoco se permiten flores ni lazos en el traje de hombre.
+2 | El traje masculino con pantalón ajustado y chaleco corto se llama traje de ___ | torrentí | torrenti | labrador;saragüell;huertano | - | Junto al saragüell, es uno de los trajes tradicionales del fallero.
+1 | Las falleras llevan joyas en el pelo y en el pecho llamadas ___ | aderezo | aderezos;adreç | collar;medalla;broche | pulsera de goma;reloj;cromo | El aderezo es el juego de joyas: pendientes, joya del pecho y adornos del moño.
+1 | Los falleros llevan en la cabeza un ___ anudado | pañuelo | mocador;pañuelo de cabeza | gorro;casco;sombrero de copa | turbante de pirata;gorro de cocinero;corona | En valenciano se llama mocador.

@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.env
+*.keystore
+*.jks
+android/key.properties
+ios/App/Pods/
+.DS_Store
+android/app/build/
+android/build/
+android/.gradle/
+ios/App/build/
+*.aab
+*.apk
+*.ipa

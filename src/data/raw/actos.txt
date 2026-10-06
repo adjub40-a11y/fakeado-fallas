@@ -1,0 +1,33 @@
+# nivel | pregunta (con ___) | respuesta | alias (;) | mentiras de la casa (;) | mentiras peques (;) | dato curioso
+1 | Las fallas grandes se queman la noche del ___ de marzo | 19 | diecinueve | 15;31;1 | 2;100;25 | La cremà de las fallas grandes es a las doce de la noche del 19 de marzo.
+1 | La quema de las fallas se llama la ___ | cremà | crema;la cremà | plantà;despertà;mascletà | fogata;barbacoa;chimenea | En valenciano, "cremar" significa quemar.
+1 | Montar la falla en la calle se llama la ___ | plantà | planta;la plantà | cremà;ofrena;crida | mudanza;siesta;excursión | Las fallas grandes tienen que estar terminadas la mañana del 16 de marzo.
+1 | La mascletà de la plaza del Ayuntamiento empieza a las ___ | dos de la tarde | 14:00;las dos;dos;14h;14 h;14 horas;las dos de la tarde | doce del mediodía;ocho de la tarde;nueve de la mañana | medianoche;cinco de la tarde;hora de la merienda | Hay mascletà en la plaza todos los días del 1 al 19 de marzo.
+1 | Despertar a los vecinos con petardos por la mañana se llama la ___ | despertà | desperta;la despertà | mascletà;cridà;cremà | siesta;alarma;pijamada | Se lanzan tro de bac, unos petardos que explotan al chocar contra el suelo.
+1 | En la Ofrenda, los falleros llevan ramos de flores a la ___ | Virgen | Virgen de los Desamparados;Mare de Déu;Geperudeta;Mare de Déu dels Desemparats | alcaldesa;Fallera Mayor;catedral | luna;abuela;falla | Con las flores se forma el manto de una enorme figura de la Virgen en la plaza.
+1 | Las flores que más se llevan en la Ofrenda son los ___ | claveles | clavel;clavells | tulipanes;girasoles;lirios | cactus;champiñones;dientes de león | Con claveles de colores se dibuja el manto de la Virgen.
+1 | La fiesta empieza oficialmente con la ___ en las Torres de Serranos | Crida | crida;la Crida | Cremà;Plantà;Mascletà | Merienda;Tómbola;Carrera | Se celebra el último domingo de febrero.
+1 | Las fallas están montadas en la calle unos ___ días | 4 | cuatro | 30;1;15 | 100;365;0 | Se plantan el 15 de marzo y arden la noche del 19.
+1 | Las fallas infantiles se queman ___ que las grandes | antes | más pronto;primero | después;a la vez;por la mañana | nunca;mañana;el año que viene | Las infantiles arden hacia las diez de la noche del 19 de marzo.
+1 | La mascletà más famosa se dispara en la plaza del ___ | Ayuntamiento | Ajuntament;plaza del Ayuntamiento | Mercado;Pilar;Toros | Parque;Cole;Zoo | Miles de personas se juntan allí cada día del 1 al 19 de marzo.
+2 | El apodo cariñoso de la Virgen de los Desamparados es la ___ | Geperudeta | geperudeta | Moreneta;Pilarica;Macarena | - | Significa "la jorobadita", porque la imagen está un poco inclinada.
+2 | La primera Ofrenda de flores oficial se celebró en el año ___ | 1945 | mil novecientos cuarenta y cinco | 1960;1910;1975 | - | La impulsó el músico Eduardo López-Chávarri, con el apoyo de Junta Central Fallera.
+2 | La figura gigante de la Virgen que se cubre de flores mide unos ___ metros | 15 | quince | 5;30;50 | - | Se creó en 1987 y su manto de flores se teje durante los dos días de Ofrenda.
+2 | La Ofrenda de flores se celebra los días 17 y ___ de marzo | 18 | dieciocho | 16;19;20 | - | Más de 100.000 falleros desfilan hasta la plaza de la Virgen.
+2 | La Ofrenda termina en la plaza de la ___ | Virgen | Mare de Déu;plaza de la Virgen | Reina;Catedral;Almoina | - | El desfile llega por la calle San Vicente y la calle de la Paz.
+2 | En la Crida, la Fallera Mayor anuncia: "Ja estem en ___" | Falles | Fallas | Festa;Primavera;Març | - | Ese día el alcalde le entrega las llaves de la ciudad.
+2 | La Crida se celebra en las Torres de ___ | Serranos | serranos | Quart;Santa Catalina;Micalet | - | Es el último domingo de febrero.
+2 | El gran castillo de fuegos de la noche del 18 de marzo se llama la Nit del ___ | Foc | foc;fuego | Fum;Llum;Soroll | - | Lo ven cientos de miles de personas en el antiguo cauce del Turia.
+2 | La Nit del Foc se dispara en el antiguo cauce del río ___ | Turia | túria;Túria | Júcar;Segura;Ebro | - | Los castillos de fuegos de Fallas se lanzan en la zona del paseo de la Alameda.
+2 | El desfile con fuego del 19 de marzo por la calle Colón se llama la Cabalgata del ___ | Fuego | Foc | Ninot;Humo;Agua | - | Empieza al caer la tarde, horas antes de la cremà.
+2 | La falla del Ayuntamiento es la última en quemarse, a la ___ de la madrugada | una | 1;la una | dos;tres;cuatro | - | Las demás grandes arden a medianoche y la ganadora de Especial a las doce y media.
+2 | La falla que gana el primer premio de Especial se quema a las doce y ___ | media | treinta;y media | cuarto;diez;cinco | - | Así todo el mundo puede ir a verla arder después de quemar la suya.
+2 | La Fallera Mayor de Valencia se elige en el mes de ___ | octubre | Octubre | enero;marzo;junio | - | La de 2026, Carmen Prades, se dio a conocer a mediados de octubre de 2025.
+2 | La Fallera Mayor de Valencia tiene una Corte de Honor de ___ falleras | 12 | doce | 10;6;20 | - | La Fallera Mayor Infantil también tiene una corte de 12 niñas.
+2 | La gran fiesta en la que se presenta a la Fallera Mayor de Valencia se llama la ___ | Exaltación | Exaltació | Coronación;Investidura;Gran Gala | - | Se celebra a finales de enero, antes de la Crida.
+2 | La calle famosa por sus espectaculares luces de Fallas es la de la falla ___ | Sueca-Literato Azorín | Sueca;Sueca Literato Azorín;Sueca-Literat Azorín | Cuba-Literato Azorín;Na Jordana;Plaza del Pilar | - | Ha ganado el premio a la mejor iluminación muchos años seguidos.
+2 | Los ninots infantiles se recogen de la Exposición la tarde del ___ de marzo | 14 | catorce | 10;17;19 | - | Los grandes se recogen al día siguiente, el 15, para llevarlos a su falla.
+1 | Las Fallas se celebran en el mes de ___ | marzo | març | abril;febrero;julio | diciembre;agosto;enero | La semana grande va del 15 al 19 de marzo.
+1 | La Fallera Mayor lleva en la Ofrenda un gran ramo de ___ | flores | flors;claveles | frutas;globos;caramelos | plumas;lápices;espaguetis | Al llegar a la plaza, los ramos se colocan en el manto de la Virgen.
+1 | En la Ofrenda, el manto de la Virgen se hace con ___ | flores | flors;claveles | telas;papel;luces | chuches;pintura;plastilina | Los vestidores de la Virgen colocan los ramos uno a uno siguiendo un dibujo.
+1 | La noche de la cremà, los bomberos echan ___ a las casas de alrededor | agua | aigua | arena;espuma;nieve | zumo;leche;confeti | Mojan fachadas y toldos para que el fuego no salte a los edificios.

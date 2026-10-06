@@ -1,0 +1,11 @@
+# nivel | pregunta (con ___) | respuesta | alias (;) | mentiras de la casa (;) | mentiras peques (;) | dato curioso
+1 | En valenciano, "cremar" significa ___ | quemar | arder | correr;gritar;cantar | comer;bailar;dormir | Por eso la quema de las fallas se llama cremà.
+1 | El local donde se reúnen los falleros todo el año se llama ___ | casal | casal faller;casal fallero | taller;club;barracón | castillo;cueva;garaje | Allí se organizan cenas, ensayos y se recauda dinero para la falla.
+1 | "Ninot" en valenciano quiere decir ___ | muñeco | muñeca;figura | payaso;gigante;fantasma | caramelo;dragón;helado | Las fallas están hechas de muchos ninots.
+2 | La máxima recompensa fallera es el bunyol d'or i brillants amb fulles de ___ | llorer | laurel | olivera;palmera;taronger | - | Los bunyols de Junta Central Fallera reconocen los años de trabajo de los falleros.
+2 | En valenciano, "plantar" la falla significa ___ | montarla | montar;colocarla;instalarla;levantarla | pintarla;regarla;venderla | - | Por eso el montaje del 15 de marzo se llama plantà.
+2 | A los niños falleros se les llama xiquets, y a las niñas ___ | xiquetes | xiquetas;chiquetes | xicones;nenetes;menudes | - | "Xiquet" es la forma valenciana de decir niño.
+1 | En valenciano, "foc" significa ___ | fuego | foc | agua;humo;luz | perro;nube;cama | Por eso la gran noche de fuegos se llama Nit del Foc.
+1 | En valenciano, "nit" significa ___ | noche | la noche | día;fiesta;luna | merienda;siesta;sopa | Nit del Foc es "la noche del fuego".
+1 | "Bona nit" en valenciano quiere decir ___ | buenas noches | bona nit | buenos días;hasta luego;felices fiestas | qué hambre;me voy;feliz cumpleaños | Y "bon dia" es buenos días.
+1 | En valenciano, la "falla" de los niños se llama falla ___ | infantil | infantils | menuda;xicoteta;nana | bebé;pequeñita;de juguete | Cada comisión planta su falla gran y su falla infantil.
