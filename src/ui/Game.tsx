@@ -390,7 +390,7 @@ export function Scores({ room, host, conn }: { room: RoomState; host: HostApi; c
   );
 }
 
-/** Premio de casal: adultos (nivel Adulto) se llevan un xupito de cassalla; menores, uno de xocolata */
+/** Premio de casal: adultos (nivel Adulto) se llevan una de bunyols; menores, un xupito de xocolata */
 export function xupitoFor(room: RoomState, rows: ReturnType<typeof H.ranking>) {
   if (!getPrefs().bromes) return null;
   const top = rows[0];
@@ -398,8 +398,8 @@ export function xupitoFor(room: RoomState, rows: ReturnType<typeof H.ranking>) {
   const winners = rows.filter((r) => r.score === top.score);
   const adults = winners.filter((r) => room.players[r.pid]?.level === 4).length;
   const kids = winners.length - adults;
-  if (adults && kids) return { kind: 'mix', emoji: '🥃🍫', text: '¡Xupito de cassalla per als majors i de xocolata per als xiquets!' };
-  if (adults) return { kind: 'cassalla', emoji: '🥃', text: '¡Xupito de cassalla!' };
+  if (adults && kids) return { kind: 'mix', emoji: '🍩🍫', text: '¡Una de bunyols per als majors i xupito de xocolata per als xiquets!' };
+  if (adults) return { kind: 'bunyols', emoji: '🍩', text: '¡Una de bunyols!' };
   return { kind: 'xocolata', emoji: '🍫', text: '¡Xupito de xocolata!' };
 }
 

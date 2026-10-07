@@ -295,7 +295,7 @@ button, input { font: inherit; color: inherit; }
   border: var(--edge); border-radius: 10px; padding: 14px 16px; transform: rotate(-2deg);
   box-shadow: 6px 6px 0 var(--pink); animation: slam-in 0.4s cubic-bezier(0.2, 1.6, 0.4, 1) both;
 }
-.xupito.cassalla { background: #f4f7ff; }
+.xupito.bunyols { background: #f4f7ff; }
 .xupito.xocolata { background: #ffd9a8; }
 .xupito.mix { background: var(--sun); font-size: clamp(17px, 4.6vw, 22px); }
 .xupito-emoji { font-size: 40px; }

@@ -4,6 +4,6 @@
 1 | La bebida fresquita de chufa típica de Valencia es la ___ | horchata | orxata | limonada;granizada;agua de cebada | coca-cola;batido;gaseosa | Se acompaña con fartons para mojar.
 1 | En valenciano, a la calabaza se la llama ___ | carabassa | carabasa | albergínia;pastanaga;bajoqueta | sandía;pelota;tomate | Por eso los buñuelos de Fallas se llaman "bunyols de carabassa".
 2 | Los bollos alargados que se mojan en horchata se llaman ___ | fartons | farton | ensaïmades;rosquilletes;panquemaos | - | Son blanditos y llevan azúcar glas por encima.
-2 | Al almuerzo de media mañana en Valencia se le llama ___ | esmorzaret | esmorzar;almorzaret | berenar;sopar;dinar | - | Bocadillo, olivas, cacaues y cremaet: un clásico de las mañanas falleras.
+2 | Al almuerzo de media mañana en Valencia se le llama ___ | esmorzaret | esmorzar;almorzaret | berenar;sopar;dinar | - | Bocadillo, olivas y cacaues: un clásico de las mañanas falleras.
 1 | Los buñuelos de Fallas se hacen ___ en aceite | fritos | fregits;frito | cocidos;al horno;a la plancha | congelados;crudos;en la nevera | Se forman a mano con un agujero en el centro y se fríen al momento.
 1 | El plato de arroz más famoso de Valencia es la ___ | paella | paella valenciana | fideuà;arroz al horno;arroz negro | pizza;tortilla;hamburguesa | La paella valenciana lleva pollo, conejo y verduras.

@@ -134,7 +134,7 @@ Google exige **al menos 12 testers apuntados durante 14 días seguidos** antes d
 - **«La meua falla»**: el bloque `meuaFalla` de `historia.json` es lo que viene rellenado de serie (ahora, Maestro Aguilar-Los Centelles-Matías Perelló, ejercicio 2027). Cada comisión puede cambiarlo desde la app sin tocar el código.
 - Las Falleras Mayores Infantiles de los últimos años no salen con nombre (preguntas ni hemeroteca) porque aún son menores; el límite está en 2018.
 - **Ninots indultats y fallas municipales**: también en `historia.json`, sacados de los históricos de fallas.com.
-- **Premio xupito**: al terminar, si gana un adulto sale «¡Xupito de cassalla!» y si gana un menor «¡Xupito de xocolata!». Se apaga en el inicio («Premio xupito: no»). Si en las tiendas la mención al alcohol sube la edad recomendada (PEGI 12 / Apple 12+) y no lo quieres, cambia `bromes: true` por `bromes: false` en `src/ui/local.ts` para que venga apagado.
+- **Premio xupito**: al terminar, si gana un adulto sale «¡Una de bunyols!» y si gana un menor «¡Xupito de xocolata!». Se apaga en el inicio («Premio xupito: no»). No hay ninguna referencia al alcohol, para que la app sea PEGI 3 y apta para la categoría Familias.
 - **Música**: `public/music/himne.mp3` (Himne de l'Exposició). Ver `public/music/LICENCIA.txt`.
 
 ## Cómo actualizar el juego

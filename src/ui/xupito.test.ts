@@ -10,9 +10,9 @@ function room(players: [string, 1 | 2 | 3 | 4, number][]): RoomState {
   return r;
 }
 describe('premio xupito', () => {
-  it('gana un adulto: cassalla', () => {
+  it('gana un adulto: bunyols', () => {
     const r = room([['Jose', 4, 5000], ['Vera', 1, 3000]]);
-    expect(xupitoFor(r, H.ranking(r))?.text).toBe('¡Xupito de cassalla!');
+    expect(xupitoFor(r, H.ranking(r))?.text).toBe('¡Una de bunyols!');
   });
   it('gana un menor: xocolata', () => {
     const r = room([['Jose', 4, 1000], ['Pau', 2, 4000]]);

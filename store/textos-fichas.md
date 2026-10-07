@@ -36,7 +36,7 @@ PARA PEQUES Y MAYORES
 • Modo Peques: los niños eligen entre tres mentiras, sin escribir.
 • Las preguntas se adaptan a la edad del jugador más pequeño.
 • Música de dolçaina y tabalet, el Himne Regional y mascletà cuando alguien se come una mentira.
-• Premio de casal al ganador: ¡xupito de cassalla para los mayores y de xocolata para los peques! (se puede desactivar)
+• Premio de casal al ganador: ¡una de bunyols para los mayores y un xupito de xocolata para los peques! (se puede desactivar)
 
 VARIOS MÓVILES, UNA PARTIDA
 Uno crea la sala y los demás entran con un código de 4 letras. También podéis usar una tablet o la tele como pantalla grande, o jugar pasando un solo móvil.
@@ -126,16 +126,15 @@ No hace falta cuenta de prueba (la app no tiene inicio de sesión).
 
 ### Google Play · Clasificación de contenido (IARC)
 Categoría: **Juego**. Responde **No** a violencia, sexo, lenguaje malsonante, apuestas y miedo.
-- **Alcohol:** responde **Sí, referencias** (el premio de broma «¡Xupito de cassalla!» que sale al ganar un adulto). Sin consumo mostrado ni incitación.
+- **Alcohol:** responde **No** (el premio del ganador adulto es «¡Una de bunyols!»).
 - ¿Los usuarios pueden interactuar o intercambiar contenido? **Sí** (escriben respuestas cortas que ven otros jugadores de su sala).
 - ¿Comparte la ubicación? **No** · ¿Compras digitales? **Sí**
-Resultado esperado: PEGI 3 o PEGI 12 por la mención al alcohol. Si sale 12 y prefieres que sea para todos, desactiva el premio xupito por defecto (ver GUIA.md).
+Resultado esperado: PEGI 3.
 
 ### Apple · Clasificación por edad
 Todo **No** / **Ninguno**, salvo:
 - «Contenido generado por los usuarios»: **Sí**, con moderación.
-- «Alcohol, tabaco o drogas (uso o referencias)»: **Poco frecuente/leve** (el «¡Xupito de cassalla!» del ganador adulto).
-Resultado esperado: 12+ por la referencia al alcohol. Si quieres 4+, desactiva el premio xupito por defecto antes de enviar (ver GUIA.md).
+Resultado esperado: 4+.
 
 ### Apple · Privacidad de la app
 - Datos vinculados al usuario: **Ninguno**
