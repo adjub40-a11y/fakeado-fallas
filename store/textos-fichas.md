@@ -26,7 +26,7 @@ Sale una pregunta fallera con una respuesta real: «La falla más alta de la his
 TODO EL MUNDO FALLERO
 • Historia, plantà, cremà, mascletà, Ofrenda, Crida y Nit del Foc.
 • Indumentaria, pólvora, ninots, música, bunyols y parlem valencià.
-• Todas las Falleras Mayores de Valencia desde 1931 y todos los primeros premios de Sección Especial desde 1942.
+• Todas las Falleras Mayores de Valencia desde 1931 y los primeros premios de Sección Especial desde 1942.
 • Hemeroteca para consultar Falleras Mayores, Infantiles y palmarés.
 
 LA MEUA FALLA
@@ -39,7 +39,7 @@ PARA PEQUES Y MAYORES
 • Premio de casal al ganador: ¡una de bunyols para los mayores y un xupito de xocolata para los peques! (se puede desactivar)
 
 VARIOS MÓVILES, UNA PARTIDA
-Uno crea la sala y los demás entran con un código de 4 letras. También podéis usar una tablet o la tele como pantalla grande, o jugar pasando un solo móvil.
+Uno crea la sala y los demás entran con un código de 4 letras. También podéis usar una tablet como pantalla grande, o jugar pasando un solo móvil.
 
 SIN ANUNCIOS NI REGISTRO
 Solo un apodo. Partidas privadas con código.
