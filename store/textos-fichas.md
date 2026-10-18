@@ -39,7 +39,7 @@ PARA PEQUES Y MAYORES
 • Premio de casal al ganador: ¡una de bunyols para los mayores y un xupito de xocolata para los peques! (se puede desactivar)
 
 VARIOS MÓVILES, UNA PARTIDA
-Uno crea la sala y los demás entran con un código de 4 letras. También podéis usar una tablet como pantalla grande, o jugar pasando un solo móvil.
+Uno crea la sala y los demás entran con un código de 6 letras. También podéis usar una tablet como pantalla grande, o jugar pasando un solo móvil.
 
 SIN ANUNCIOS NI REGISTRO
 Solo un apodo. Partidas privadas con código.

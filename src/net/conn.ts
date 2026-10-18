@@ -84,6 +84,6 @@ export function cleanRemote(raw: any): RoomState | null {
 const LETTERS = 'ABCDEFGHJKLMNPQRSTUVWXYZ'; // sin I ni O para no confundir
 export function randomCode(rand = Math.random): string {
   let s = '';
-  for (let i = 0; i < 4; i++) s += LETTERS[Math.floor(rand() * LETTERS.length)];
+  for (let i = 0; i < 6; i++) s += LETTERS[Math.floor(rand() * LETTERS.length)];
   return s;
 }

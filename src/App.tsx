@@ -37,7 +37,7 @@ type Screen =
 export default function App() {
   const [screen, setScreen] = useState<Screen>(() => {
     const code = new URLSearchParams(location.search).get('sala');
-    if (code && /^[A-Za-z]{4}$/.test(code)) return getProfile() ? { name: 'join', code } : { name: 'profile', then: { name: 'join', code } };
+    if (code && /^[A-Za-z]{6}$/.test(code)) return getProfile() ? { name: 'join', code } : { name: 'profile', then: { name: 'join', code } };
     return getProfile() ? { name: 'home' } : { name: 'profile' };
   });
   const [, force] = useState(0);
@@ -271,7 +271,7 @@ function Join({ initial, onBack, onJoined }: { initial?: string; onBack: () => v
   const [err, setErr] = useState<string | null>(null);
   async function go(e?: React.FormEvent) {
     e?.preventDefault();
-    if (code.length !== 4) return;
+    if (code.length !== 6) return;
     setBusy(true);
     setErr(null);
     try {
@@ -294,7 +294,7 @@ function Join({ initial, onBack, onJoined }: { initial?: string; onBack: () => v
     setBusy(false);
   }
   useEffect(() => {
-    if (initial && initial.length === 4) go();
+    if (initial && initial.length === 6) go();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
@@ -306,17 +306,17 @@ function Join({ initial, onBack, onJoined }: { initial?: string; onBack: () => v
           <input
             className="input code"
             value={code}
-            maxLength={4}
+            maxLength={6}
             autoCapitalize="characters"
             autoComplete="off"
             autoCorrect="off"
             onChange={(e) => setCode(e.target.value.toUpperCase().replace(/[^A-Z]/g, ''))}
             placeholder="ABCD"
-            aria-label="Código de 4 letras"
+            aria-label="Código de 6 letras"
           />
         </label>
         {err && <div className="error">{err}</div>}
-        <button className="btn" disabled={busy || code.length !== 4}>
+        <button className="btn" disabled={busy || code.length !== 6}>
           {busy ? 'Conectando…' : 'Entrar'}
         </button>
       </form>
