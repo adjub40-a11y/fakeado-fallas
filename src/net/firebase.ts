@@ -8,6 +8,7 @@ import {
 import type { HostSecret, Player, RoomState, Settings } from '../engine/types';
 import { cleanRemote, diffPaths, randomCode, type RoomConn } from './conn';
 import { firebaseConfig, firebaseConfigured } from '../firebase-config';
+import { startAppCheck } from './appcheck';
 
 let app: FirebaseApp | null = null;
 let auth: Auth;
@@ -22,6 +23,7 @@ async function ensure(): Promise<string> {
   if (!firebaseConfigured()) throw new Error('El juego online no está configurado.');
   if (!app) {
     app = initializeApp(firebaseConfig);
+    await startAppCheck(app);
     auth = getAuth(app);
     db = getDatabase(app);
     onValue(ref(db, '.info/serverTimeOffset'), (s) => (offset = s.val() || 0));

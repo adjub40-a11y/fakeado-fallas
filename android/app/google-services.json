@@ -1,0 +1,20 @@
+{
+  "project_info": {
+    "project_number": "966738494496",
+    "firebase_url": "https://fakeado-2aaf4-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "fakeado-2aaf4",
+    "storage_bucket": "fakeado-2aaf4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:966738494496:android:5526a27a6758eee0e6e845",
+        "android_client_info": { "package_name": "es.fakeado.fallas" }
+      },
+      "oauth_client": [],
+      "api_key": [{ "current_key": "AIzaSyDwsnIGAgU8dA_S9zjlgKhmIsyHfNLuCQI" }],
+      "services": { "appinvite_service": { "other_platform_oauth_client": [] } }
+    }
+  ],
+  "configuration_version": "1"
+}
