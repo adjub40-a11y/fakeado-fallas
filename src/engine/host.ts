@@ -2,7 +2,7 @@
 // El dispositivo anfitrión es la "autoridad" de la partida: valida mentiras, mezcla opciones y puntúa.
 
 import type { GameState, HostSecret, Option, PlayerLevel, Question, RoomState, Settings } from './types';
-import { cleanLie, isOffensive, matchesTruth, normalize } from './text';
+import { cleanLie, isOffensive, matchesTruth, normalize, truthKind } from './text';
 
 export type Rand = () => number;
 
@@ -24,11 +24,31 @@ export function defaultSettings(): Settings {
   return { rounds: 3, perRound: 3, timer: 'normal', cats: [], unlocked: false };
 }
 
+export const POINTS_STREAK = 250;
+
+const LIE_S = { rapido: 30, normal: 45, relajado: 80 } as const;
+const VOTE_S = { rapido: 12, normal: 20, relajado: 40 } as const;
 export function lieSeconds(s: Settings): number | null {
-  return s.timer === 'sin' ? null : s.timer === 'relajado' ? 90 : 50;
+  return s.timer === 'sin' ? null : (LIE_S[s.timer as keyof typeof LIE_S] ?? LIE_S.normal);
 }
 export function voteSeconds(s: Settings): number | null {
-  return s.timer === 'sin' ? null : s.timer === 'relajado' ? 45 : 25;
+  return s.timer === 'sin' ? null : (VOTE_S[s.timer as keyof typeof VOTE_S] ?? VOTE_S.normal);
+}
+
+/** Cuántas preguntas seguidas (contando esta) ha acertado la verdad un jugador */
+export function truthStreak(room: RoomState, pid: string, hitNow: boolean): number {
+  if (!hitNow || !room.game) return 0;
+  let n = 1;
+  for (let q = room.game.qNum - 1; q >= 1; q--) {
+    const h = room.history?.['q' + q];
+    if (!h || h.votes?.[pid] !== h.reveal.truthId) break;
+    n++;
+  }
+  return n;
+}
+/** Bonus por racha: 2 seguidas +250, 3 seguidas +500, 4 o más +750 (por el multiplicador) */
+export function streakBonus(streak: number, m: number): number {
+  return streak >= 2 ? POINTS_STREAK * (Math.min(streak, 4) - 1) * m : 0;
 }
 
 export function createRoom(code: string, hostId: string, hostPlays: boolean, now: number, settings: Settings = defaultSettings()): RoomState {
@@ -147,9 +167,10 @@ export function validateLies(step: HostStep): HostStep {
       changed = true;
       continue;
     }
-    if (matchesTruth(text, secret.answer, secret.alias)) {
+    const kind = truthKind(text, secret.answer, secret.alias);
+    if (kind) {
       delete lies[pid];
-      rejects[pid] = 'truth';
+      rejects[pid] = kind === 'near' ? 'near' : 'truth';
       changed = true;
     } else if (isOffensive(text)) {
       delete lies[pid];
@@ -250,11 +271,20 @@ export function toReveal(step: HostStep): HostStep {
       for (const a of auth) if (a !== 'house' && active.has(a)) gained[a] = (gained[a] ?? 0) + POINTS_FOOL * m;
     }
   }
+  const streak: Record<string, number> = {};
+  for (const pid of active) {
+    const hit = votes[pid] === secret.truthId && !(secret.authors[secret.truthId] || []).includes(pid);
+    const n = truthStreak(room, pid, hit);
+    if (n >= 2) {
+      streak[pid] = n;
+      gained[pid] += streakBonus(n, m);
+    }
+  }
   const players = { ...room.players };
   for (const [pid, g] of Object.entries(gained)) {
     if (players[pid]) players[pid] = { ...players[pid], score: (players[pid].score || 0) + g };
   }
-  const reveal = { truthId: secret.truthId, answer: secret.answer, fact: secret.fact, authors: secret.authors, gained };
+  const reveal = { truthId: secret.truthId, answer: secret.answer, fact: secret.fact, authors: secret.authors, gained, ...(Object.keys(streak).length ? { streak } : {}) };
   const game: GameState = { ...room.game, phase: 'reveal', deadline: null, reveal };
   const history = { ...(room.history || {}), ['q' + room.game.qNum]: { reveal, votes: { ...votes } } };
   return { room: { ...room, players, game, history }, secret };

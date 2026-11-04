@@ -108,8 +108,8 @@ export function SettingsEditor({ settings, onChange, bank, youngest, pass }: {
       {!pass && (
         <div className="field">
           Tiempo para pensar
-          <div className="seg even">
-            {([['normal', 'Normal'], ['relajado', 'Relajado'], ['sin', 'Sin tiempo']] as const).map(([v, l]) => (
+          <div className="seg even timers">
+            {([['rapido', '⚡ Rápido'], ['normal', 'Normal'], ['relajado', 'Relajado'], ['sin', 'Sin tiempo']] as const).map(([v, l]) => (
               <button type="button" key={v} aria-pressed={settings.timer === v} onClick={() => onChange({ ...settings, timer: v })}>
                 {l}
               </button>
@@ -287,7 +287,8 @@ export function HowTo({ onBack }: { onBack: () => void }) {
           <li>Se descubre quién ha engañado a quién.</li>
         </ol>
         <p>
-          <strong>Puntos:</strong> 1.000 por acertar la verdad y 500 por cada jugador que cae en tu mentira. La última ronda vale el doble.
+          <strong>Puntos:</strong> 1.000 por acertar la verdad y 500 por cada jugador que cae en tu mentira. Si aciertas varias seguidas, ganas
+          un extra de racha 🔥 (+250, +500 y hasta +750). La última ronda vale el doble.
         </p>
         <p>
           <strong>Varios móviles:</strong> uno crea la sala y los demás se unen con el código. Si tenéis una tablet o un ordenador, podéis usarlo como

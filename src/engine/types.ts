@@ -26,7 +26,7 @@ export interface Question {
 }
 
 export type Phase = 'lie' | 'vote' | 'reveal' | 'scores' | 'final';
-export type TimerMode = 'normal' | 'relajado' | 'sin';
+export type TimerMode = 'rapido' | 'normal' | 'relajado' | 'sin';
 
 export interface Settings {
   rounds: number; // nº de rondas (la última puntúa doble)
@@ -66,6 +66,8 @@ export interface RevealInfo {
   authors: Record<string, string[]>;
   /** puntos ganados en esta pregunta por jugador */
   gained: Record<string, number>;
+  /** aciertos seguidos de la verdad (solo jugadores con racha de 2 o más) */
+  streak?: Record<string, number>;
 }
 
 export interface GameState {

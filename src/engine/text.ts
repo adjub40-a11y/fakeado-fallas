@@ -33,6 +33,22 @@ export function matchesTruth(text: string, answer: string, alias: string[] = [])
   return cands.some((c) => c === n || singular(c) === singular(n));
 }
 
+/**
+ * Distingue la verdad exacta de un valor aproximado aceptado como verdad (alias con otra cifra,
+ * p. ej. «2» cuando la respuesta es «3 km»). 'exact' | 'near' | null.
+ */
+export function truthKind(text: string, answer: string, alias: string[] = []): 'exact' | 'near' | null {
+  const n = normalize(text);
+  if (!n) return null;
+  const same = (c: string) => c === n || singular(c) === singular(n);
+  const a = normalize(answer);
+  if (a && same(a)) return 'exact';
+  const digits = (s: string) => (s.match(/\d+/g) || []).join(',');
+  const hit = alias.map(normalize).filter(Boolean).find(same);
+  if (!hit) return null;
+  return digits(hit) && digits(a) && digits(hit) !== digits(a) ? 'near' : 'exact';
+}
+
 function singular(s: string): string {
   return s
     .split(' ')

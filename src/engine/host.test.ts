@@ -75,7 +75,7 @@ describe('partida completa', () => {
     let r = room([4, 4, 3]);
     let st = H.startGame(r, bank, 1000, rand);
     expect(st.room.game?.phase).toBe('lie');
-    expect(st.room.game?.deadline).toBe(1000 + 50000);
+    expect(st.room.game?.deadline).toBe(1000 + 45000);
     // forzamos pregunta Q0 (respuesta "tres")
     st.secret.order[0] = 'Q0';
     st = H.loadQuestion(st, bank, 1, st.room.game!.total, 1000);
@@ -122,8 +122,9 @@ describe('partida completa', () => {
     }
     expect(st.room.game?.phase).toBe('final');
     expect(seenPhases.filter((p) => p === 'scores').length).toBe(2);
-    // 6 preguntas x1000 + 3 preguntas x2000 = 12000
-    expect(st.room.players.p0.score).toBe(12000);
+    // 6 x1000 + 3 x2000 = 12000, más racha: +250 +500 +750·3 (x1) y +750·3 (x2) = 7500
+    expect(st.room.players.p0.score).toBe(19500);
+    expect(st.room.game?.reveal?.streak?.p0).toBe(9);
   });
 
   it('un jugador fantasma (solo "online") no cuenta', () => {
@@ -156,5 +157,34 @@ describe('partida completa', () => {
     const t = H.toVote(st, 0, rand);
     const texts = t.room.game!.options!.map((o) => normalize(o.text));
     expect(new Set(texts).size).toBe(texts.length);
+  });
+});
+
+describe('racha', () => {
+  it('bonus creciente con tope en 4 aciertos seguidos', () => {
+    expect(H.streakBonus(1, 1)).toBe(0);
+    expect(H.streakBonus(2, 1)).toBe(250);
+    expect(H.streakBonus(3, 1)).toBe(500);
+    expect(H.streakBonus(7, 1)).toBe(750);
+    expect(H.streakBonus(3, 2)).toBe(1000);
+  });
+  it('tiempos según el modo', () => {
+    const s = H.defaultSettings();
+    expect(H.lieSeconds({ ...s, timer: 'rapido' })).toBe(30);
+    expect(H.voteSeconds({ ...s, timer: 'rapido' })).toBe(12);
+    expect(H.lieSeconds({ ...s, timer: 'sin' })).toBeNull();
+  });
+});
+
+describe('verdad aproximada', () => {
+  it('distingue la verdad exacta de un valor casi verdadero', async () => {
+    const { truthKind } = await import('./text');
+    expect(truthKind('3', '3', ['tres', '2', '3 kilómetros'])).toBe('exact');
+    expect(truthKind('tres', '3', ['tres', '2', '3 kilómetros'])).toBe('exact');
+    expect(truthKind('3 kilómetros', '3', ['tres', '2', '3 kilómetros'])).toBe('exact');
+    expect(truthKind('2', '3', ['tres', '2', '3 kilómetros'])).toBe('near');
+    expect(truthKind('dos', '3', ['tres', '2', '3 kilómetros'])).toBe('near');
+    expect(truthKind('4', '3', ['tres', '2', '3 kilómetros'])).toBeNull();
+    expect(truthKind('2,5', '3', ['tres', '2', '3 kilómetros'])).toBeNull();
   });
 });

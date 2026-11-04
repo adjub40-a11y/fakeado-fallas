@@ -301,3 +301,51 @@ button, input { font: inherit; color: inherit; }
 .xupito-emoji { font-size: 40px; }
 @keyframes slam-in { from { transform: rotate(-12deg) scale(1.8); opacity: 0; } to { transform: rotate(-2deg) scale(1); opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .xupito { animation: none; } }
+
+/* ---------- versión 1.1: ritmo e indicaciones ---------- */
+.steps { display: flex; gap: 6px; list-style: none; margin: 0; padding: 0; }
+.steps li {
+  flex: 1 1 0; text-align: center; font-weight: 800; font-size: 14px; padding: 6px 4px; border-radius: 999px;
+  border: 2px solid rgb(255 255 255 / 0.25); color: var(--lav); white-space: nowrap;
+}
+.steps li.past { opacity: 0.55; }
+.steps li.on { background: var(--sun); color: var(--ink); border-color: var(--ink); box-shadow: 3px 3px 0 var(--pink); transform: scale(1.04); }
+
+.timebar { height: 10px; border-radius: 999px; background: rgb(0 0 0 / 0.45); border: 2px solid var(--ink); overflow: hidden; margin-top: -6px; }
+.timebar i { display: block; height: 100%; background: linear-gradient(90deg, var(--truth), var(--sun)); transition: width 0.25s linear; }
+.timebar.hurry i { background: var(--stamp); animation: blink 0.5s steps(2) infinite; }
+@keyframes blink { 50% { opacity: 0.4; } }
+
+.intro { position: fixed; inset: 0; z-index: 70; display: grid; place-items: center; background: rgb(10 4 30 / 0.78); animation: introfade 1.5s ease both; padding: 16px; }
+.intro-card { text-align: center; animation: introzoom 1.5s cubic-bezier(0.2, 1.4, 0.4, 1) both; }
+.intro-num { font-family: var(--display); font-size: clamp(40px, 12vw, 76px); line-height: 1; color: var(--sun); text-shadow: 4px 4px 0 var(--pink), 0 0 30px rgb(255 210 63 / 0.5); transform: skew(-6deg) rotate(-3deg); }
+.intro-num small { font-size: 0.45em; color: var(--cyan); text-shadow: none; }
+.intro-cat { margin-top: 14px; font-weight: 800; font-size: 22px; color: #fff; }
+.intro-x2 { margin: 14px auto 0; width: fit-content; font-family: var(--display); font-size: 24px; background: var(--stamp); color: #fff; padding: 4px 14px; border-radius: 8px; border: 3px solid #fff; transform: rotate(3deg); animation: blink 0.4s steps(2) 3; }
+@keyframes introfade { 0% { opacity: 0; } 12% { opacity: 1; } 80% { opacity: 1; } 100% { opacity: 0; visibility: hidden; } }
+@keyframes introzoom { 0% { transform: scale(2.2); } 25% { transform: scale(1); } 80% { transform: scale(1.04); } 100% { transform: scale(0.8); } }
+
+.preview { background: rgb(0 0 0 / 0.4); border: 2px dashed var(--cyan); border-radius: 14px; padding: 10px 14px; color: #fff; font-weight: 700; font-size: 18px; }
+.preview b { color: var(--sun); border-bottom: 3px solid var(--pink); }
+.btn.idea { align-self: flex-start; }
+
+.letter {
+  display: inline-grid; place-items: center; width: 34px; height: 34px; margin-right: 12px; border-radius: 10px; flex: 0 0 auto;
+  background: var(--ink); color: var(--sun); font-family: var(--arcade); font-size: 13px; vertical-align: middle;
+}
+.opt { display: flex; align-items: center; }
+.kids .opt { justify-content: center; }
+
+.btn.autonext { position: relative; overflow: hidden; isolation: isolate; }
+.btn.autonext::before { content: ''; position: absolute; inset: 0; width: var(--p, 0%); background: rgb(255 255 255 / 0.45); z-index: -1; transition: width 1s linear; }
+.btn.autonext .count { font-family: var(--arcade); font-size: 14px; background: var(--ink); color: var(--sun); border-radius: 8px; padding: 6px 8px; }
+
+.fire { margin-left: 6px; font-weight: 800; color: var(--orange); animation: pop 0.3s ease-out both; }
+.rank-row .move { font-family: var(--arcade); font-size: 11px; animation: pop 0.4s ease-out 0.5s both; }
+.rank-row .move.up { color: var(--truth); }
+.rank-row .move.down { color: var(--stamp); }
+.seg.timers button { font-size: 14px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .intro, .intro-card, .intro-x2, .timebar.hurry i, .fire, .rank-row .move { animation: none; }
+}

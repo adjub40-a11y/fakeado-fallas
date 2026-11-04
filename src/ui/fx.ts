@@ -45,6 +45,16 @@ export const sfx = {
     [523, 659, 784, 1046].forEach((f, i) => tone(f, 0.16, 'triangle', i * 0.08));
   },
   tick: () => tone(1200, 0.03, 'square', 0, 0.06),
+  hurry: () => {
+    tone(1400, 0.05, 'square', 0, 0.1);
+    tone(1400, 0.05, 'square', 0.12, 0.1);
+  },
+  whoosh: () => {
+    [330, 440, 587, 784].forEach((f, i) => tone(f, 0.09, 'sawtooth', i * 0.04, 0.07));
+  },
+  streak: () => {
+    [784, 988, 1175, 1568].forEach((f, i) => tone(f, 0.1, 'square', 0.1 + i * 0.06, 0.08));
+  },
 };
 
 export function buzz(strong = false) {

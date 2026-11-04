@@ -6,6 +6,7 @@ import { isOffensive, normalize } from '../engine/text';
 import { CATEGORIES } from '../data/categories';
 import { useNow } from './hooks';
 import { buzz, canSpeak, sfx, speak } from './fx';
+import { AutoNext, CountUp, PhaseSteps, QuestionIntro, TimerBar, letter, roundGains } from './turbo';
 import { mascleta } from './music';
 import { getPrefs } from './local';
 
@@ -24,10 +25,14 @@ export function Meta({ room, conn }: { room: RoomState; conn: RoomConn }) {
   const left = g.deadline ? Math.max(0, Math.ceil((g.deadline - now) / 1000)) : null;
   const last = useRef<number | null>(null);
   useEffect(() => {
-    if (left !== null && left <= 5 && left > 0 && last.current !== left) sfx.tick();
+    if (left !== null && left <= 5 && left > 0 && last.current !== left) (left <= 3 ? sfx.hurry() : sfx.tick());
     last.current = left;
   }, [left]);
+  const timed = left !== null && (g.phase === 'lie' || g.phase === 'vote');
   return (
+    <>
+    <QuestionIntro room={room} />
+    <PhaseSteps phase={g.phase} />
     <div className="meta">
       <span>
         Pregunta {g.qNum} de {g.total}
@@ -39,6 +44,8 @@ export function Meta({ room, conn }: { room: RoomState; conn: RoomConn }) {
         </span>
       )}
     </div>
+    {timed && <TimerBar room={room} left={Math.max(0, (g.deadline! - now) / 1000)} />}
+    </>
   );
 }
 
@@ -94,10 +101,13 @@ export function LiePhase({ room, conn, pid, onSent }: { room: RoomState; conn: R
   const [text, setText] = useState('');
   const [err, setErr] = useState<string | null>(null);
   const [sending, setSending] = useState(false);
+  const [idea, setIdea] = useState(-1);
+  const [qa, qb] = g.question.q.split('___');
 
   useEffect(() => {
     setText('');
     setErr(null);
+    setIdea(-1);
   }, [g.qNum]);
 
   async function send(t: string) {
@@ -129,6 +139,7 @@ export function LiePhase({ room, conn, pid, onSent }: { room: RoomState; conn: R
   return (
     <div className="stack">
       {reject === 'truth' && <div className="banner">¡Has escrito la verdad! Inventa otra respuesta para engañar a los demás.</div>}
+      {reject === 'near' && <div className="banner">¡Casi es la verdad! Inventa algo más alejado para que sea una mentira.</div>}
       {reject === 'bad' && <div className="banner red">Esa respuesta no vale. Prueba con otra.</div>}
       {kid ? (
         <>
@@ -150,7 +161,8 @@ export function LiePhase({ room, conn, pid, onSent }: { room: RoomState; conn: R
           }}
         >
           <label className="field on-ink">
-            Escribe una respuesta falsa que parezca verdad
+            Inventa una respuesta falsa que parezca verdad
+            <span className="hint">Por cada jugador que caiga en tu mentira: +500</span>
             <input
               className="input"
               value={text}
@@ -165,6 +177,28 @@ export function LiePhase({ room, conn, pid, onSent }: { room: RoomState; conn: R
               placeholder="Tu mentira"
             />
           </label>
+          {text.trim() && (
+            <div className="preview" aria-live="polite">
+              {qa}
+              <b>{text.trim()}</b>
+              {qb}
+            </div>
+          )}
+          {g.question.kids.length > 0 && (
+            <button
+              type="button"
+              className="btn white small idea"
+              onClick={() => {
+                const n = (idea + 1) % g.question.kids.length;
+                setIdea(n);
+                setText(g.question.kids[n]);
+                setErr(null);
+                sfx.tap();
+              }}
+            >
+              💡 {idea < 0 ? '¿Sin ideas? Dame una' : 'Otra idea'}
+            </button>
+          )}
           {err && <div className="banner red">{err}</div>}
           <button className="btn" disabled={sending || !text.trim()}>
             Enviar mentira
@@ -204,9 +238,11 @@ export function VotePhase({ room, conn, pid, onSent }: { room: RoomState; conn: 
   }
   return (
     <div className="stack">
-      <p className="on-ink" style={{ margin: 0, fontSize: 20 }}>¿Cuál es la respuesta verdadera?</p>
+      <p className="on-ink" style={{ margin: 0, fontSize: 20 }}>
+        ¿Cuál es la verdad? <span className="hint">Si aciertas: +1000</span>
+      </p>
       <div className="options">
-        {(g.options || []).map((o) => (
+        {(g.options || []).map((o, i) => (
           <button
             key={o.id}
             className={'opt' + (mine.has(o.id) ? ' mine' : '')}
@@ -220,6 +256,7 @@ export function VotePhase({ room, conn, pid, onSent }: { room: RoomState; conn: 
               onSent?.();
             }}
           >
+            <span className="letter">{letter(i)}</span>
             {o.text}
           </button>
         ))}
@@ -236,8 +273,9 @@ export function ScreenWaiting({ room }: { room: RoomState }) {
     return (
       <div className="stack">
         <div className="options">
-          {(g.options || []).map((o) => (
+          {(g.options || []).map((o, i) => (
             <div key={o.id} className="opt" style={{ cursor: 'default' }}>
+              <span className="letter">{letter(i)}</span>
               {o.text}
             </div>
           ))}
@@ -273,7 +311,7 @@ export function Reveal({ room, host, conn }: { room: RoomState; host: HostApi; c
       mascleta();
       buzz(true);
     }
-    const t = setTimeout(() => setN((x) => x + 1), isTruth ? 1500 : 2600);
+    const t = setTimeout(() => setN((x) => x + 1), isTruth ? 1200 : 1800);
     return () => clearTimeout(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [n, steps]);
@@ -319,9 +357,12 @@ export function Reveal({ room, host, conn }: { room: RoomState; host: HostApi; c
           <div className="fact pop">{rv.fact}</div>
           <Gains room={room} />
           {host ? (
-            <button className="btn" onClick={host.next}>
-              {g.qNum >= g.total ? 'Ver resultado final' : g.qNum % room.settings.perRound === 0 ? 'Ver marcador' : 'Siguiente pregunta'}
-            </button>
+            <AutoNext
+              key={g.qNum}
+              seconds={10}
+              onGo={host.next}
+              label={g.qNum >= g.total ? 'Ver resultado final' : g.qNum % room.settings.perRound === 0 ? 'Ver marcador' : 'Siguiente pregunta'}
+            />
           ) : (
             !conn.local && <p className="muted on-ink center">El anfitrión pasará a la siguiente.</p>
           )}
@@ -334,7 +375,12 @@ export function Reveal({ room, host, conn }: { room: RoomState; host: HostApi; c
 
 function Gains({ room }: { room: RoomState }) {
   const gained = room.game?.reveal?.gained || {};
+  const streak = room.game?.reveal?.streak || {};
   const list = H.ranking(room).filter((r) => (gained[r.pid] || 0) > 0);
+  const hot = Object.keys(streak).length > 0;
+  useEffect(() => {
+    if (hot) sfx.streak();
+  }, [hot]);
   if (!list.length) return null;
   return (
     <div className="players">
@@ -342,6 +388,7 @@ function Gains({ room }: { room: RoomState }) {
         <span key={r.pid} className="chip">
           <span className="av">{r.avatar}</span>
           {r.name} +{gained[r.pid]}
+          {streak[r.pid] ? <span className="fire" title={`${streak[r.pid]} aciertos seguidos`}>🔥{streak[r.pid]}</span> : null}
         </span>
       ))}
     </div>
@@ -350,8 +397,15 @@ function Gains({ room }: { room: RoomState }) {
 
 /* ---------- marcador y final ---------- */
 
-export function Ranking({ room }: { room: RoomState }) {
+export function Ranking({ room, gains }: { room: RoomState; gains?: Record<string, number> }) {
   const rows = H.ranking(room);
+  const before = (pid: string, score: number) => score - (gains?.[pid] || 0);
+  const prevPos: Record<string, number> = {};
+  if (gains)
+    rows
+      .map((r) => ({ pid: r.pid, s: before(r.pid, r.score) }))
+      .sort((a, b) => b.s - a.s)
+      .forEach((r, i) => (prevPos[r.pid] = i));
   return (
     <div className="rank">
       {rows.map((r, i) => (
@@ -359,7 +413,9 @@ export function Ranking({ room }: { room: RoomState }) {
           <span className="pos">{i + 1}º</span>
           <span className="av">{r.avatar}</span>
           <span className="name">{r.name}</span>
-          <span className="pts">{r.score.toLocaleString('es-ES')}</span>
+          {gains && prevPos[r.pid] > i && <span className="move up" aria-label={`sube ${prevPos[r.pid] - i}`}>▲{prevPos[r.pid] - i}</span>}
+          {gains && prevPos[r.pid] < i && <span className="move down" aria-label={`baja ${i - prevPos[r.pid]}`}>▼{i - prevPos[r.pid]}</span>}
+          <span className="pts">{gains ? <CountUp from={before(r.pid, r.score)} to={r.score} /> : r.score.toLocaleString('es-ES')}</span>
         </div>
       ))}
     </div>
@@ -375,14 +431,12 @@ export function Scores({ room, host, conn }: { room: RoomState; host: HostApi; c
         <div className="meta">FIN DE LA RONDA {g.round}</div>
         <h2 className="title-big" style={{ margin: '6px 0 0' }}>Marcador</h2>
       </div>
-      <Ranking room={room} />
+      <Ranking room={room} gains={roundGains(room, g.round)} />
       {nextRound === room.settings.rounds && room.settings.rounds > 1 && (
         <div className="banner">Última ronda: ¡todo vale el doble!</div>
       )}
       {host ? (
-        <button className="btn" onClick={host.next}>
-          Empezar ronda {nextRound}
-        </button>
+        <AutoNext key={g.round} seconds={12} onGo={host.next} label={`Empezar ronda ${nextRound}`} />
       ) : (
         !conn.local && <p className="muted on-ink center">Esperando al anfitrión…</p>
       )}
