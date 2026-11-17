@@ -9,3 +9,14 @@
 1 | En valenciano, "nit" significa ___ | noche | la noche | día;fiesta;luna | merienda;siesta;sopa | Nit del Foc es "la noche del fuego".
 1 | "Bona nit" en valenciano quiere decir ___ | buenas noches | bona nit | buenos días;hasta luego;felices fiestas | qué hambre;me voy;feliz cumpleaños | Y "bon dia" es buenos días.
 1 | En valenciano, la "falla" de los niños se llama falla ___ | infantil | infantils | menuda;xicoteta;nana | bebé;pequeñita;de juguete | Cada comisión planta su falla gran y su falla infantil.
+1 | En valenciano, "carrer" significa ___ | calle | la calle | carro;cartero;camino | caramelo;cara;carreta | Muchas fallas llevan el nombre de las calles donde se plantan.
+1 | En valenciano, "xiquet" significa ___ | niño | chico;chiquillo;crío;nene | chiste;cohete;chaleco | chicle;chorizo;chupete | Por eso las fallas de los niños son "les falles dels xiquets".
+1 | En valenciano, "dolç" significa ___ | dulce | - | salado;amargo;dolor | delfín;dólar;dedo | Y un bunyol amb xocolate és el dolç més faller.
+1 | En valenciano, "germà" significa ___ | hermano | - | primo;abuelo;vecino | germen;girasol;gemido | Y "germana" es hermana.
+1 | En valenciano, "festa" significa ___ | fiesta | - | siesta;feria;fecha | fresa;flecha;foca | Las Fallas son la festa grande de Valencia.
+1 | En valenciano, "gos" significa ___ | perro | - | gato;ganso;gusano | gol;gorro;gas | Y "gat" es gato.
+1 | En valenciano, "dimarts" es el día de la semana ___ | martes | - | miércoles;jueves;lunes | marte;marzo;mar | Los días son dilluns, dimarts, dimecres, dijous, divendres, dissabte y diumenge.
+2 | En valenciano, "ofrena" significa ___ | ofrenda | - | oferta;oración;ofensa | - | L'Ofrena de flors a la Mare de Déu dura dos días.
+2 | En valenciano, "esmorzar" significa ___ | almorzar | almuerzo;desayunar;desayuno | comer;merendar;cenar | - | Y el almuerzo de media mañana es el famoso esmorzaret.
+1 | "Bon dia" en valenciano significa ___ | buenos días | buen día | buenas noches;hasta luego;buenas tardes | buen viaje;feliz cumpleaños;qué rico | Y por la tarde se dice "bona vesprada".
+1 | En valenciano, "xocolate" significa ___ | chocolate | - | café;caramelo;churro | chorizo;chicle;champú | Los bunyols se mojan en xocolate calentet.

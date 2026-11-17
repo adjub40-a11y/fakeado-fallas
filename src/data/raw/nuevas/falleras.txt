@@ -1,0 +1,3 @@
+# Preguntas añadidas después de las generadas (para no cambiar los ids existentes)
+2 | La Fallera Mayor de Valencia y su Corte ven la mascletà desde el balcón del ___ | Ayuntamiento | Ajuntament | Mercado;Teatro;Hospital | - | Desde allí se da la orden: "Senyor pirotècnic, pot començar la mascletà".
+2 | En el Museo Fallero hay retratos pintados de las ___ | Falleras Mayores | Falleras Mayores de Valencia | presidentas;alcaldesas;artistas | - | Desde 1995 se pinta un cuadro de cada Fallera Mayor de Valencia para la colección.

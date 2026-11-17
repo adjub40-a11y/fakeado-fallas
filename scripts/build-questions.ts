@@ -1,6 +1,6 @@
 // Compila src/data/raw/*.txt -> src/data/questions.json y valida cada pregunta.
 // Uso: node scripts/build-questions.ts
-import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { matchesTruth, normalize, isOffensive } from '../src/engine/text.ts';
 import { CATEGORIES } from '../src/data/categories.ts';
@@ -102,7 +102,13 @@ for (const cat of cats) {
     errors.push(`${file}: categoría desconocida`);
     continue;
   }
-  const lines = [...(files.includes(file) ? readFileSync(join(RAW, file), 'utf8').split('\n') : []), ...(extra[cat] || [])];
+  const NUEVAS = join(RAW, 'nuevas', file);
+  // raw/nuevas/<cat>.txt va después de las generadas, para que los ids de las ya publicadas no cambien
+  const lines = [
+    ...(files.includes(file) ? readFileSync(join(RAW, file), 'utf8').split('\n') : []),
+    ...(extra[cat] || []),
+    ...(existsSync(NUEVAS) ? readFileSync(NUEVAS, 'utf8').split('\n') : []),
+  ];
   let n = 0;
   const perLvl: Record<number, number> = {};
   lines.forEach((line, i) => {

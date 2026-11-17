@@ -7,3 +7,10 @@
 2 | Al almuerzo de media mañana en Valencia se le llama ___ | esmorzaret | esmorzar;almorzaret | berenar;sopar;dinar | - | Bocadillo, olivas y cacaues: un clásico de las mañanas falleras.
 1 | Los buñuelos de Fallas se hacen ___ en aceite | fritos | fregits;frito | cocidos;al horno;a la plancha | congelados;crudos;en la nevera | Se forman a mano con un agujero en el centro y se fríen al momento.
 1 | El plato de arroz más famoso de Valencia es la ___ | paella | paella valenciana | fideuà;arroz al horno;arroz negro | pizza;tortilla;hamburguesa | La paella valenciana lleva pollo, conejo y verduras.
+2 | La chufa de la horchata se cultiva sobre todo en el pueblo de ___ | Alboraya | Alboraia | Sueca;Burjassot;Paterna | - | Allí está el Consejo Regulador de la Denominación de Origen Chufa de Valencia.
+2 | Según la leyenda, el rey que probó la horchata y dijo "això és or, xata" fue ___ | Jaime I | Jaume I;el rey Jaime;Jaime | Felipe II;Alfonso X;Carlos III | - | De ahí vendría el nombre de "orxata", aunque es solo una leyenda.
+2 | La paella valenciana lleva pollo, conejo, judía verde y ___ | garrofó | garrofón | guisantes;gambas;chorizo | - | El garrofó es una judía blanca, grande y aplastada, típica de la huerta valenciana.
+2 | El arroz de Valencia con Denominación de Origen se cultiva en el parque natural de la ___ | Albufera | l'Albufera | Calderona;Font Roja;Mariola | - | Entre su lago y sus arrozales nació la paella.
+1 | Los puestos de la calle donde se fríen buñuelos en Fallas se llaman ___ | buñolerías | bunyoleries;bunyoleria;buñolería;paradas | heladerías;carnicerías;fruterías | jugueterías;pajarerías;zapaterías | Las buñoleras dan forma a la masa con las manos mojadas.
+1 | Los buñuelos de Fallas se comen espolvoreados con ___ | azúcar | sucre | sal;pimienta;harina | arena;purpurina;confeti | Y mojados en chocolate caliente.
+2 | Los "bunyols de vent" son buñuelos sin ___ | calabaza | carabassa | azúcar;harina;aceite | - | Los de toda la vida en Fallas son los de carabassa, hechos con calabaza asada.

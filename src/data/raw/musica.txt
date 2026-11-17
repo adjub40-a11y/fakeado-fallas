@@ -12,3 +12,8 @@
 3 | La letra del Himno Regional valenciano es de Maximiliano ___ | Thous | thous | Serrano;Llorente;Blasco | - | Se convirtió en himno oficial de la Comunitat Valenciana en 1981.
 1 | El tambor pequeño que acompaña a la dolçaina se llama ___ | tabalet | tabal;tamboret | bombo;timbal;caja | pandereta;sartén;tambor de juguete | Dolçaina y tabalet suenan en muchas fiestas valencianas.
 1 | Cuando la banda pasa por la calle tocando, se llama ___ | pasacalle | pasacalles;cercavila | concierto;desfile militar;procesión | carrera;fiesta de pijamas;recreo | Las comisiones recorren su barrio al ritmo de pasodobles.
+2 | "Paquito el Chocolatero" lo compuso Gustavo Pascual Falcó en el año ___ | 1937 | mil novecientos treinta y siete | 1957;1925;1969 | - | Lo compuso en verano, en Cocentaina, y se lo dedicó a su cuñado.
+2 | El autor de "Paquito el Chocolatero" era del pueblo de ___ | Cocentaina | - | Alcoy;Xàtiva;Sueca | - | Gustavo Pascual Falcó nació allí en 1909; la partitura original se conserva en su pueblo.
+2 | "Paquito el Chocolatero" se llama así por el cuñado del compositor, que se llamaba ___ | Francisco | Paco;Paquito;Francisco Pérez | Pascual;Vicente;Gustavo | - | Francisco Pérez Molina vendía chocolate, y por eso lo llamaban "el chocolatero".
+2 | El pasodoble "Amparito Roca" lo compuso el maestro Jaime ___ | Texidor | Teixidor | Serrano;Padilla;Giner | - | Se lo dedicó a una alumna suya de piano llamada Amparito Roca.
+3 | "Amparito Roca" se compuso en el año ___ | 1925 | mil novecientos veinticinco | 1950;1909;1936 | - | Hoy lo tocan bandas de música de medio mundo.

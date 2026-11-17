@@ -1,0 +1,5 @@
+# Preguntas añadidas después de las generadas (para no cambiar los ids existentes)
+2 | El Museo Fallero, donde se guardan los ninots indultats, está en la plaza de ___ | Monteolivete | Montolivet;Monteolivet | Tetuán;Zaragoza;Manises | - | Está allí desde 1971, en un antiguo convento.
+2 | Desde 1963 el Museo Fallero guarda también los ninots indultats ___ | infantiles | infantil;de las fallas infantiles | gigantes;de cera;extranjeros | - | Ese año se salvó el primer ninot infantil: Pinocho y Gepetto.
+2 | A la Exposición del Ninot, cada comisión lleva ___ ninot de su falla grande | un | uno;1 | tres;cinco;diez | - | El público vota, y el más votado se salva del fuego.
+1 | La noche del 19 de marzo, las fallas acaban ___ | quemadas | ardiendo;en llamas;quemada | guardadas;vendidas;regaladas | en la luna;nadando;bailando | Solo se salvan del fuego los ninots indultats.
