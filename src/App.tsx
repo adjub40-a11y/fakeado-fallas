@@ -1,8 +1,9 @@
-import { T } from './i18n';
+import { T, getLang } from './i18n';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { App as CapApp } from '@capacitor/app';
 import { Capacitor } from '@capacitor/core';
-import bankJson from './data/questions.json';
+import bankEs from './data/questions.json';
+import bankVa from './data/questions.va.json';
 import type { Question, RoomState, Settings } from './engine/types';
 import * as H from './engine/host';
 import type { RoomConn } from './net/conn';
@@ -17,9 +18,10 @@ import { meuaQuestions } from './ui/meua';
 import { initPurchases, isUnlocked, onPurchaseChange } from './purchase';
 import { isMusicPlaying, musicEnabled, setMusicMood, startMusic, stopMusic } from './ui/music';
 
-const baseBank = bankJson as Question[];
+// Preguntas en el idioma elegido (cambiar de idioma recarga la app)
+const baseBank = (getLang() === 'va' ? bankVa : bankEs) as Question[];
 const buildBank = () => [...baseBank, ...meuaQuestions()];
-// se reconstruye solo al guardar T('La meua falla'), para mantener la misma referencia durante la partida
+// se reconstruye solo al guardar «La meua falla», para mantener la misma referencia durante la partida
 let bank: Question[] = buildBank();
 
 type Screen =

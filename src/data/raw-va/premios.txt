@@ -1,0 +1,9 @@
+# Curiositats de premis (els guanyadors any rere any es generen des de src/data/historia.json)
+2 | La falla que més primers premis de Secció Especial ha guanyat és ___ | Convento Jerusalén | Convento Jerusalén-Matemático Marzal;Convento;Convent Jerusalem;Convent Jerusalem-Matemàtic Marzal | Plaza del Pilar;Na Jordana;Mercado Central | - | Suma 19 primers premis, els últims en 2025 i 2026.
+2 | Nou Campanar va guanyar el primer premi d'Especial sis anys seguits, de 2004 a ___ | 2009 | dos mil nou | 2006;2012;2010 | - | El va tornar a guanyar en 2012: set en total.
+2 | La segona falla amb més primers premis d'Especial, 16, és ___ | Plaza del Pilar | Pilar;Plaça del Pilar | Na Jordana;Mercado Central;Nou Campanar | - | Va guanyar tres anys seguits entre 1966 i 1968, i altres tres entre 1983 i 1985.
+2 | El monument guanyador d'Especial en 2026 el va fer l'artista David Sánchez ___ | Llongo | llongo | Llopis;Lorente;Lloret | - | Va ser per a Convento Jerusalén, que va repetir triomf després de 2025.
+3 | El primer any de la Secció Especial, 1942, van competir Barcas, Reina-Paz i ___ | Plaza del Mercado | Mercado;Mercado Central;Plaza del Mercado Central;Plaça del Mercat;Mercat Central | Plaza del Pilar;Na Jordana;Ruzafa | - | Eixe primer any va guanyar Barcas-Pascual y Genís.
+3 | La falla L'Antiga de Campanar està al carrer Monestir de ___ | Poblet | poblet | Montserrat;Santes Creus;Valldigna | - | Ha guanyat cinc primers premis d'Especial.
+3 | En 2026, el segon premi d'Especial va ser per a L'Antiga de Campanar i el tercer per a ___ | Na Jordana | na jordana | Plaza del Pilar;Nou Campanar;Mercado Central | - | El monument de Na Jordana era de l'artista Mario Gual.
+3 | En 2026, el primer premi d'enginy i gràcia d'Especial va ser per a la falla ___ | Sueca-Literato Azorín | Sueca;Sueca-Literat Azorín | Plaza del Pilar;Duque de Calabria;Cuba-Literato Azorín | - | El seu artista va ser Pedro Santaeulalia, que també va fer el ninot indultat.

@@ -1,5 +1,5 @@
 # nivel | pregunta (con ___) | respuesta | alias (;) | mentiras de la casa (;) | mentiras peques (;) | dato curioso
-1 | Las fallas grandes se queman la noche del ___ de marzo | 19 | diecinueve | 15;31;1 | 2;100;25 | La cremà de las fallas grandes es a las doce de la noche del 19 de marzo.
+1 | Las fallas grandes se queman la noche del ___ de marzo | 19 | diecinueve | 15;31;1 | 2;100;25 | En 2026 la cremà de las fallas grandes empezó a las diez de la noche del 19 de marzo.
 1 | La quema de las fallas se llama la ___ | cremà | crema;la cremà | plantà;despertà;mascletà | fogata;barbacoa;chimenea | En valenciano, "cremar" significa quemar.
 1 | Montar la falla en la calle se llama la ___ | plantà | planta;la plantà | cremà;ofrena;crida | mudanza;siesta;excursión | Las fallas grandes tienen que estar terminadas la mañana del 16 de marzo.
 1 | La mascletà de la plaza del Ayuntamiento empieza a las ___ | dos de la tarde | 14:00;las dos;dos;14h;14 h;14 horas;las dos de la tarde | doce del mediodía;ocho de la tarde;nueve de la mañana | medianoche;cinco de la tarde;hora de la merienda | Hay mascletà en la plaza todos los días del 1 al 19 de marzo.
@@ -8,7 +8,7 @@
 1 | Las flores que más se llevan en la Ofrenda son los ___ | claveles | clavel;clavells | tulipanes;girasoles;lirios | cactus;champiñones;dientes de león | Con claveles de colores se dibuja el manto de la Virgen.
 1 | La fiesta empieza oficialmente con la ___ en las Torres de Serranos | Crida | crida;la Crida | Cremà;Plantà;Mascletà | Merienda;Tómbola;Carrera | Se celebra el último domingo de febrero.
 1 | Las fallas están montadas en la calle unos ___ días | 4 | cuatro | 30;1;15 | 100;365;0 | Se plantan el 15 de marzo y arden la noche del 19.
-1 | Las fallas infantiles se queman ___ que las grandes | antes | más pronto;primero | después;a la vez;por la mañana | nunca;mañana;el año que viene | Las infantiles arden hacia las diez de la noche del 19 de marzo.
+1 | Las fallas infantiles se queman ___ que las grandes | antes | más pronto;primero | después;a la vez;por la mañana | nunca;mañana;el año que viene | En 2026 las infantiles ardieron a las ocho de la tarde y las grandes a las diez de la noche.
 1 | La mascletà más famosa se dispara en la plaza del ___ | Ayuntamiento | Ajuntament;plaza del Ayuntamiento | Mercado;Pilar;Toros | Parque;Cole;Zoo | Miles de personas se juntan allí cada día del 1 al 19 de marzo.
 2 | El apodo cariñoso de la Virgen de los Desamparados es la ___ | Geperudeta | geperudeta | Moreneta;Pilarica;Macarena | - | Significa "la jorobadita", porque la imagen está un poco inclinada.
 2 | La primera Ofrenda de flores oficial se celebró en el año ___ | 1945 | mil novecientos cuarenta y cinco | 1960;1910;1975 | - | La impulsó el músico Eduardo López-Chávarri, con el apoyo de Junta Central Fallera.
@@ -20,8 +20,8 @@
 2 | El gran castillo de fuegos de la noche del 18 de marzo se llama la Nit del ___ | Foc | foc;fuego | Fum;Llum;Soroll | - | Lo ven cientos de miles de personas en el antiguo cauce del Turia.
 2 | La Nit del Foc se dispara en el antiguo cauce del río ___ | Turia | túria;Túria | Júcar;Segura;Ebro | - | Los castillos de fuegos de Fallas se lanzan en la zona del paseo de la Alameda.
 2 | El desfile con fuego del 19 de marzo por la calle Colón se llama la Cabalgata del ___ | Fuego | Foc | Ninot;Humo;Agua | - | Empieza al caer la tarde, horas antes de la cremà.
-2 | La falla del Ayuntamiento es la última en quemarse, a la ___ de la madrugada | una | 1;la una | dos;tres;cuatro | - | Las demás grandes arden a medianoche y la ganadora de Especial a las doce y media.
-2 | La falla que gana el primer premio de Especial se quema a las doce y ___ | media | treinta;y media | cuarto;diez;cinco | - | Así todo el mundo puede ir a verla arder después de quemar la suya.
+2 | En 2026, la falla del Ayuntamiento fue la última en quemarse, a las ___ de la noche | once | 11;23:00;las once | doce;diez;nueve | - | Las demás grandes ardieron a las diez y la ganadora de Especial a las diez y media.
+2 | En 2026, la falla que ganó el primer premio de Especial se quemó a las diez y ___ | media | treinta;y media | cuarto;diez;cinco | - | Media hora después de la cremà general, para que todo el mundo pudiera ir a verla arder.
 2 | La Fallera Mayor de Valencia se elige en el mes de ___ | octubre | Octubre | enero;marzo;junio | - | La de 2026, Carmen Prades, se dio a conocer a mediados de octubre de 2025.
 2 | La Fallera Mayor de Valencia tiene una Corte de Honor de ___ falleras | 12 | doce | 10;6;20 | - | La Fallera Mayor Infantil también tiene una corte de 12 niñas.
 2 | La gran fiesta en la que se presenta a la Fallera Mayor de Valencia se llama la ___ | Exaltación | Exaltació | Coronación;Investidura;Gran Gala | - | Se celebra a finales de enero, antes de la Crida.

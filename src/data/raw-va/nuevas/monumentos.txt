@@ -1,0 +1,5 @@
+# Preguntes afegides després de les generades (per a no canviar els ids existents)
+2 | El Museu Faller, on es guarden els ninots indultats, està a la plaça de ___ | Montolivet | Monteolivete;Monteolivet | Tetuan;Saragossa;Manises | - | Està allí des de 1971, en un antic convent.
+2 | Des de 1963 el Museu Faller guarda també els ninots indultats ___ | infantils | infantil;de les falles infantils;infantiles | gegants;de cera;estrangers | - | Eixe any es va salvar el primer ninot infantil: Pinotxo i Gepetto.
+2 | A l'Exposició del Ninot, cada comissió porta ___ ninot de la seua falla gran | un | u;1;uno | tres;cinc;deu | - | El públic vota, i el més votat se salva del foc.
+1 | La nit del 19 de març, les falles acaben ___ | cremades | cremant;en flames;cremada;quemadas | guardades;venudes;regalades | a la lluna;nadant;ballant | Només se salven del foc els ninots indultats.

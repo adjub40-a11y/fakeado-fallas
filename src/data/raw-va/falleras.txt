@@ -1,0 +1,13 @@
+# Curiositats de Falleres Majors (les preguntes any rere any es generen des de src/data/historia.json)
+2 | La primera Fallera Major de València va ser triada l'any ___ | 1931 | mil nou-cents trenta-u;mil nou-cents trenta-un | 1945;1909;1921 | - | Va ser Mª Àngels Algarra Azura.
+2 | En 1932 hi va haver ___ Falleres Majors de València | dues | 2;dos | tres;cap;cinc | - | Van ser Cruz Robles i Consuelo Cariñena.
+2 | La Fallera Major de València de 2026 és Carmen ___ | Prades | prades | Prats;Pardo;Peris | - | És de la falla Convento Jerusalén-Matemático Marzal.
+2 | En ser triada, l'Ajuntament regala a cada Fallera Major un test d'___ | alfàbega | alfábega;albahaca | romer;gerani;clavells | - | El ninot indultat infantil de 2026 incloïa el ceramista amb el test d'alfàbega.
+2 | La Fallera Major de València la tria ___ | un jurat | jurat;jurado;un jurado | votació popular;un sorteig;la Cort d'Honor | - | S'anuncia a mitjan octubre.
+3 | María Luisa Aranda Sala va ser Fallera Major de València dos anys seguits: 1940 i ___ | 1941 | mil nou-cents quaranta-u;mil nou-cents quaranta-un | 1942;1939;1945 | - | En 1940 va encapçalar una visita espontània amb flors a la Mare de Déu, antecedent de l'Ofrena.
+3 | Consuelo Llobell va ser Fallera Major de València dos anys per culpa de la ___ | pandèmia | covid;coronavirus;la pandèmia;pandemia | pluja;una vaga;una lesió | - | El seu regnat va durar de 2020 a 2021.
+3 | Carmen Serratosa Caturla va ser Fallera Major Infantil en 1968 i Fallera Major de València en ___ | 1976 | mil nou-cents setanta-sis | 1980;1972;1985 | - | És una de les poques que ha sigut Fallera Major de València de xiqueta i de major.
+3 | Elisa Lassala Bau va ser Fallera Major Infantil en 1956 i Fallera Major de València en ___ | 1970 | mil nou-cents setanta | 1966;1975;1980 | - | És una de les poques que ha repetit de xiqueta i de major.
+3 | Mónica Palmer Cuenca va ser Fallera Major Infantil en 1982 i Fallera Major de València en ___ | 1992 | mil nou-cents noranta-dos | 1990;1995;1988 | - | Deu anys després del seu regnat infantil.
+3 | Sagrario Fernández de Córdoba va ser Fallera Major Infantil en 1947 i Fallera Major de València en ___ | 1957 | mil nou-cents cinquanta-set | 1950;1962;1949 | - | De nou, deu anys després de ser infantil.
+3 | Teresa del Sacramento Agramunt va ser la primera Fallera Major Infantil de València, en ___ | 1940 | mil nou-cents quaranta | 1931;1945;1952 | - | Va repetir en 1941.
