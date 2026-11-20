@@ -3,6 +3,7 @@
 import historia from '../data/historia.json';
 import type { Question } from '../engine/types';
 import { matchesTruth, normalize } from '../engine/text';
+import { L, T } from '../i18n';
 
 export interface Cargo {
   cargo: string;
@@ -66,19 +67,25 @@ export function meuaQuestions(m: MeuaFalla = getMeua()): Question[] {
       id: `MEU-C${i}`,
       cat: 'meua',
       lvl: 1,
-      q: `En ${m.ejercicio}, ${articleFor(c.cargo)} ${c.cargo.toLowerCase()} de la falla ${m.falla} es ${w[0]} ___`,
+      q: L(
+        `En ${m.ejercicio}, ${articleFor(c.cargo)} ${c.cargo.toLowerCase()} de la falla ${m.falla} es ${w[0]} ___`,
+        `En ${m.ejercicio}, ${articleFor(c.cargo)} ${T(c.cargo).toLowerCase()} de la falla ${m.falla} és ${w[0]} ___`,
+      ),
       a: answer,
       alias: w.length > 2 ? [w[1]] : [],
       house,
       kids: KIDS.slice(i % 2, (i % 2) + 3),
-      fact: `${c.nom} es ${c.cargo.toLowerCase()} de ${m.falla} en el ejercicio ${m.ejercicio}.`,
+      fact: L(
+        `${c.nom} es ${c.cargo.toLowerCase()} de ${m.falla} en el ejercicio ${m.ejercicio}.`,
+        `${c.nom} és ${T(c.cargo).toLowerCase()} de ${m.falla} en l'exercici ${m.ejercicio}.`,
+      ),
       free: true,
     });
   });
   m.preguntas.forEach((p, i) => {
     if (!p.q.includes('___') || !p.a.trim()) return;
     const lies = p.lies.map((l) => l.trim()).filter((l) => l && !matchesTruth(l, p.a));
-    const house = lies.length >= 2 ? lies : [...lies, 'nadie lo sabe', 'otra cosa'].slice(0, 2);
+    const house = lies.length >= 2 ? lies : [...lies, L('nadie lo sabe', 'ningú ho sap'), L('otra cosa', 'una altra cosa')].slice(0, 2);
     out.push({
       id: `MEU-P${i}`,
       cat: 'meua',
@@ -88,7 +95,7 @@ export function meuaQuestions(m: MeuaFalla = getMeua()): Question[] {
       alias: [],
       house,
       kids: [...lies, ...KIDS].filter((x, j, arr) => arr.findIndex((y) => normalize(y) === normalize(x)) === j).slice(0, 3),
-      fact: `Pregunta de la falla ${m.falla}.`,
+      fact: L(`Pregunta de la falla ${m.falla}.`, `Pregunta de la falla ${m.falla}.`),
       free: true,
     });
   });

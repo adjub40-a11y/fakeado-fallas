@@ -6,6 +6,9 @@ import { SplashScreen } from '@capacitor/splash-screen';
 import App from './App';
 import Fireworks from './ui/Fireworks';
 import './ui/styles.css';
+import { getLang } from './i18n';
+
+document.documentElement.lang = getLang() === 'va' ? 'ca-ES-valencia' : 'es';
 
 if (Capacitor.isNativePlatform()) {
   StatusBar.setStyle({ style: Style.Dark }).catch(() => {});

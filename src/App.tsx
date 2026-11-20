@@ -1,3 +1,4 @@
+import { T } from './i18n';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { App as CapApp } from '@capacitor/app';
 import { Capacitor } from '@capacitor/core';
@@ -10,7 +11,7 @@ import { createOnlineRoom, isOnlineAvailable, joinOnlineRoom } from './net/fireb
 import { getPrefs, getProfile, savePrefs, saveProfile, setLastRoom, type Profile } from './ui/local';
 import { useHost, useRoom } from './ui/hooks';
 import { Final, LiePhase, Meta, QuestionCard, Reveal, Scores, ScreenWaiting, VotePhase } from './ui/Game';
-import { Bar, HowTo, PlayerChips, ProfileForm, RoomCode, SettingsEditor, Store } from './ui/screens';
+import { LangSwitch, Bar, HowTo, PlayerChips, ProfileForm, RoomCode, SettingsEditor, Store } from './ui/screens';
 import { Hemeroteca, MeuaScreen } from './ui/fallas';
 import { meuaQuestions } from './ui/meua';
 import { initPurchases, isUnlocked, onPurchaseChange } from './purchase';
@@ -18,7 +19,7 @@ import { isMusicPlaying, musicEnabled, setMusicMood, startMusic, stopMusic } fro
 
 const baseBank = bankJson as Question[];
 const buildBank = () => [...baseBank, ...meuaQuestions()];
-// se reconstruye solo al guardar "La meua falla", para mantener la misma referencia durante la partida
+// se reconstruye solo al guardar T('La meua falla'), para mantener la misma referencia durante la partida
 let bank: Question[] = buildBank();
 
 type Screen =
@@ -78,7 +79,7 @@ export default function App() {
     const h = CapApp.addListener('backButton', () => {
       if (screen.name === 'home') CapApp.exitApp();
       else if (screen.name === 'online' || screen.name === 'pass') {
-        if (confirm('¿Salir de la partida?')) goHome();
+        if (confirm(T('¿Salir de la partida?'))) goHome();
       } else setScreen({ name: 'home' });
     });
     return () => {
@@ -90,10 +91,11 @@ export default function App() {
     case 'profile':
       return (
         <div className="app">
-          {getProfile() ? <Bar title="Tu perfil" onBack={() => setScreen({ name: 'home' })} /> : <Logo />}
+          {getProfile() ? <Bar title={T('Tu perfil')} onBack={() => setScreen({ name: 'home' })} /> : <Logo />}
+          {!getProfile() && <LangSwitch />}
           <ProfileForm
             initial={getProfile() ?? undefined}
-            submitLabel={getProfile() ? 'Guardar' : 'Empezar'}
+            submitLabel={getProfile() ? T('Guardar') : T('Empezar')}
             onSave={(p) => {
               saveProfile(p);
               setScreen(screen.then ?? { name: 'home' });
@@ -142,7 +144,7 @@ function Logo() {
           <span className="bars">FALLES</span>
         </span>
       </div>
-      <p className="tagline">Cuela tus mentiras sobre las Fallas de València</p>
+      <p className="tagline">{T('Cuela tus mentiras sobre las Fallas de València')}</p>
     </div>
   );
 }
@@ -156,31 +158,32 @@ function Home({ go }: { go: (s: Screen) => void }) {
   return (
     <div className="app">
       <Logo />
+      <LangSwitch />
       <div className="stack">
         <button className="btn" onClick={() => go({ name: 'create' })} disabled={!online}>
-          Crear partida
+          {T('Crear partida')}
         </button>
         <button className="btn lilac" onClick={() => go({ name: 'join' })} disabled={!online}>
-          Unirme a una partida
+          {T('Unirme a una partida')}
         </button>
         <button className="btn white" onClick={() => go({ name: 'passSetup' })}>
-          Jugar con un solo móvil
+          {T('Jugar con un solo móvil')}
         </button>
-        {!online && <p className="muted on-ink" style={{ margin: 0 }}>El juego con varios móviles no está disponible en esta versión.</p>}
+        {!online && <p className="muted on-ink" style={{ margin: 0 }}>{T('El juego con varios móviles no está disponible en esta versión.')}</p>}
       </div>
       <div className="spacer" />
       <div className="card paper row" style={{ flexWrap: 'wrap' }}>
         <span style={{ fontSize: 34, flex: '0 0 auto' }}>{p.avatar}</span>
         <span style={{ fontWeight: 700 }}>{p.name}</span>
         <button className="btn white small" onClick={() => go({ name: 'profile' })}>
-          Cambiar
+          {T('Cambiar')}
         </button>
       </div>
       <div className="footer-links">
-        <button className="link" onClick={() => go({ name: 'howto' })}>Cómo se juega</button>
-        <button className="link" onClick={() => go({ name: 'meua' })}>La meua falla</button>
-        <button className="link" onClick={() => go({ name: 'hemeroteca' })}>Hemeroteca</button>
-        <button className="link" onClick={() => go({ name: 'store' })}>{isUnlocked() ? 'Todo desbloqueado' : 'Más preguntas'}</button>
+        <button className="link" onClick={() => go({ name: 'howto' })}>{T('Cómo se juega')}</button>
+        <button className="link" onClick={() => go({ name: 'meua' })}>{T('La meua falla')}</button>
+        <button className="link" onClick={() => go({ name: 'hemeroteca' })}>{T('Hemeroteca')}</button>
+        <button className="link" onClick={() => go({ name: 'store' })}>{isUnlocked() ? T('Todo desbloqueado') : T('Más preguntas')}</button>
         <button
           className="link"
           onClick={() => {
@@ -189,7 +192,7 @@ function Home({ go }: { go: (s: Screen) => void }) {
             setPrefs(n);
           }}
         >
-          Sonido: {prefs.sound ? 'sí' : 'no'}
+          {T('Sonido: {v}', { v: prefs.sound ? T('sí') : T('no') })}
         </button>
         <button
           className="link"
@@ -201,7 +204,7 @@ function Home({ go }: { go: (s: Screen) => void }) {
             else stopMusic();
           }}
         >
-          Música: {prefs.music !== false ? 'sí' : 'no'}
+          {T('Música: {v}', { v: prefs.music !== false ? T('sí') : T('no') })}
         </button>
         <button
           className="link"
@@ -211,9 +214,9 @@ function Home({ go }: { go: (s: Screen) => void }) {
             setPrefs(n);
           }}
         >
-          Premio xupito: {prefs.bromes !== false ? 'sí' : 'no'}
+          {T('Premio xupito: {v}', { v: prefs.bromes !== false ? T('sí') : T('no') })}
         </button>
-        <a className="link" href="./privacidad.html">Privacidad</a>
+        <a className="link" href="./privacidad.html">{T('Privacidad')}</a>
       </div>
     </div>
   );
@@ -237,25 +240,25 @@ function Create({ onBack, onCreated }: { onBack: () => void; onCreated: (c: Room
       setLastRoom(conn.code);
       onCreated(conn);
     } catch (e: any) {
-      setErr('No se pudo crear la sala. Comprueba que tienes internet.');
+      setErr(T('No se pudo crear la sala. Comprueba que tienes internet.'));
       console.error(e);
       setBusy(false);
     }
   }
   return (
     <div className="app">
-      <Bar title="Crear partida" onBack={onBack} />
-      <p className="on-ink" style={{ margin: 0, fontSize: 20 }}>¿Cómo vas a usar este dispositivo?</p>
+      <Bar title={T('Crear partida')} onBack={onBack} />
+      <p className="on-ink" style={{ margin: 0, fontSize: 20 }}>{T('¿Cómo vas a usar este dispositivo?')}</p>
       <button className="btn" disabled={busy} onClick={() => make(true)}>
         <span>
-          Para jugar
-          <span className="sub">Juego desde aquí como uno más</span>
+          {T('Para jugar')}
+          <span className="sub">{T('Juego desde aquí como uno más')}</span>
         </span>
       </button>
       <button className="btn lilac" disabled={busy} onClick={() => make(false)}>
         <span>
-          Como pantalla grande
-          <span className="sub">Tablet, ordenador o tele: todos ven las preguntas aquí</span>
+          {T('Como pantalla grande')}
+          <span className="sub">{T('Tablet, ordenador o tele: todos ven las preguntas aquí')}</span>
         </span>
       </button>
       {err && <div className="banner red">{err}</div>}
@@ -276,9 +279,9 @@ function Join({ initial, onBack, onJoined }: { initial?: string; onBack: () => v
     setErr(null);
     try {
       const r = await joinOnlineRoom(code);
-      if (r === 'not-found') setErr('No existe ninguna sala con ese código. Revisa las letras.');
-      else if (r === 'started') setErr('Esa partida ya ha empezado. Pide que vuelvan a la sala al terminar.');
-      else if (r === 'full') setErr('La sala está llena (10 jugadores).');
+      if (r === 'not-found') setErr(T('No existe ninguna sala con ese código. Revisa las letras.'));
+      else if (r === 'started') setErr(T('Esa partida ya ha empezado. Pide que vuelvan a la sala al terminar.'));
+      else if (r === 'full') setErr(T('La sala está llena (10 jugadores).'));
       else {
         if (!r.isHost) {
           const p = getProfile()!;
@@ -289,7 +292,7 @@ function Join({ initial, onBack, onJoined }: { initial?: string; onBack: () => v
       }
     } catch (e) {
       console.error(e);
-      setErr('No se pudo conectar. Comprueba que tienes internet.');
+      setErr(T('No se pudo conectar. Comprueba que tienes internet.'));
     }
     setBusy(false);
   }
@@ -299,10 +302,10 @@ function Join({ initial, onBack, onJoined }: { initial?: string; onBack: () => v
   }, []);
   return (
     <div className="app">
-      <Bar title="Unirme a una partida" onBack={onBack} />
+      <Bar title={T('Unirme a una partida')} onBack={onBack} />
       <form className="card stack" onSubmit={go}>
         <label className="field">
-          Código de la sala
+          {T('Código de la sala')}
           <input
             className="input code"
             value={code}
@@ -312,12 +315,12 @@ function Join({ initial, onBack, onJoined }: { initial?: string; onBack: () => v
             autoCorrect="off"
             onChange={(e) => setCode(e.target.value.toUpperCase().replace(/[^A-Z]/g, ''))}
             placeholder="ABCD"
-            aria-label="Código de 6 letras"
+            aria-label={T('Código de 6 letras')}
           />
         </label>
         {err && <div className="error">{err}</div>}
         <button className="btn" disabled={busy || code.length !== 6}>
-          {busy ? 'Conectando…' : 'Entrar'}
+          {busy ? T('Conectando…') : T('Entrar')}
         </button>
       </form>
     </div>
@@ -345,14 +348,14 @@ function OnlineRoom({ conn, onExit, openStore }: { conn: RoomConn; onExit: () =>
     if (conn.isHost && room && room.settings.unlocked !== unlocked) conn.hostUpdateSettings({ settings: { ...room.settings, unlocked } } as Partial<RoomState>);
   }, [conn, room, unlocked]);
 
-  if (room === undefined) return <div className="app"><Bar title="Conectando…" /></div>;
+  if (room === undefined) return <div className="app"><Bar title={T('Conectando…')} /></div>;
   if (room === null || (!conn.isHost && !room.players[conn.myId]))
     return (
       <div className="app">
-        <Bar title="Partida terminada" />
+        <Bar title={T('Partida terminada')} />
         <div className="card stack">
-          <p style={{ margin: 0 }}>{room === null ? 'El anfitrión ha cerrado la sala.' : 'Has salido de la sala.'}</p>
-          <button className="btn" onClick={onExit}>Volver al inicio</button>
+          <p style={{ margin: 0 }}>{room === null ? T('El anfitrión ha cerrado la sala.') : T('Has salido de la sala.')}</p>
+          <button className="btn" onClick={onExit}>{T('Volver al inicio')}</button>
         </div>
       </div>
     );
@@ -369,10 +372,10 @@ function OnlineRoom({ conn, onExit, openStore }: { conn: RoomConn; onExit: () =>
     const need = room.settings.rounds * room.settings.perRound;
     return (
       <div className={'app' + (wide ? ' wide' : '')}>
-        <Bar title="Sala de espera" onBack={() => confirm('¿Salir de la sala?') && onExit()} />
+        <Bar title={T('Sala de espera')} onBack={() => confirm(T('¿Salir de la sala?')) && onExit()} />
         <RoomCode code={room.code} />
         <div className="stack">
-          <p className="on-ink" style={{ margin: 0, fontWeight: 700 }}>Jugadores ({act.length})</p>
+          <p className="on-ink" style={{ margin: 0, fontWeight: 700 }}>{T('Jugadores ({n})', { n: act.length })}</p>
           <PlayerChips room={room} conn={conn} canKick={conn.isHost} />
         </div>
         {conn.isHost ? (
@@ -385,17 +388,17 @@ function OnlineRoom({ conn, onExit, openStore }: { conn: RoomConn; onExit: () =>
             />
             {!room.settings.unlocked && (
               <button className="link" onClick={openStore} style={{ alignSelf: 'flex-start' }}>
-                Estás usando la versión gratis. Ver todas las preguntas
+                {T('Estás usando la versión gratis. Ver todas las preguntas')}
               </button>
             )}
             {host.error && <div className="banner red">{host.error}</div>}
             <button className="btn" disabled={act.length < 2 || pool < need} onClick={host.start}>
-              {act.length < 2 ? 'Hacen falta al menos 2 jugadores' : 'Empezar partida'}
+              {act.length < 2 ? T('Hacen falta al menos 2 jugadores') : T('Empezar partida')}
             </button>
           </>
         ) : (
           <div className="card paper center">
-            {hostGone ? 'El anfitrión se ha desconectado. Espera a que vuelva.' : 'Esperando a que el anfitrión empiece la partida…'}
+            {hostGone ? T('El anfitrión se ha desconectado. Espera a que vuelva.') : T('Esperando a que el anfitrión empiece la partida…')}
           </div>
         )}
       </div>
@@ -403,17 +406,17 @@ function OnlineRoom({ conn, onExit, openStore }: { conn: RoomConn; onExit: () =>
   }
 
   const g = room.game;
-  if (!g) return <div className="app"><Bar title="Cargando…" /></div>;
+  if (!g) return <div className="app"><Bar title={T('Cargando…')} /></div>;
   const lost = conn.isHost && host.lost;
 
   return (
     <div className={'app' + (wide ? ' wide' : '')}>
-      <Bar title={`Sala ${room.code}`} onBack={() => confirm('¿Salir de la partida?') && onExit()} />
-      {hostGone && <div className="banner red">El anfitrión se ha desconectado. La partida seguirá cuando vuelva.</div>}
+      <Bar title={T('Sala {code}', { code: room.code })} onBack={() => confirm(T('¿Salir de la partida?')) && onExit()} />
+      {hostGone && <div className="banner red">{T('El anfitrión se ha desconectado. La partida seguirá cuando vuelva.')}</div>}
       {lost && (
         <div className="banner red stack">
-          No se ha podido recuperar la partida.
-          <button className="btn small" onClick={host.backToLobby}>Volver a la sala</button>
+          {T('No se ha podido recuperar la partida.')}
+          <button className="btn small" onClick={host.backToLobby}>{T('Volver a la sala')}</button>
         </div>
       )}
       {(g.phase === 'lie' || g.phase === 'vote') && (
@@ -429,7 +432,7 @@ function OnlineRoom({ conn, onExit, openStore }: { conn: RoomConn; onExit: () =>
           )}
           {conn.isHost && (
             <button className="link" style={{ alignSelf: 'center' }} onClick={host.next}>
-              {g.phase === 'lie' ? 'No esperar más: pasar a votar' : 'No esperar más: ver resultados'}
+              {g.phase === 'lie' ? T('No esperar más: pasar a votar') : T('No esperar más: ver resultados')}
             </button>
           )}
         </>
@@ -473,14 +476,14 @@ function PassSetup({ onBack, onStart }: { onBack: () => void; onStart: (c: RoomC
 
   return (
     <div className="app">
-      <Bar title="Un solo móvil" onBack={onBack} />
-      <p className="on-ink" style={{ margin: 0 }}>Añadid a todos los jugadores. El móvil irá pasando de mano en mano.</p>
+      <Bar title={T('Un solo móvil')} onBack={onBack} />
+      <p className="on-ink" style={{ margin: 0 }}>{T('Añadid a todos los jugadores. El móvil irá pasando de mano en mano.')}</p>
       <div className="players">
         {players.map((p, i) => (
           <span key={i} className="chip">
             <span className="av">{p.avatar}</span>
             {p.name}
-            <button onClick={() => setPlayers(players.filter((_, j) => j !== i))} aria-label={`Quitar a ${p.name}`}>
+            <button onClick={() => setPlayers(players.filter((_, j) => j !== i))} aria-label={T('Quitar a {name}', { name: p.name })}>
               ✕
             </button>
           </span>
@@ -489,7 +492,7 @@ function PassSetup({ onBack, onStart }: { onBack: () => void; onStart: (c: RoomC
       {adding ? (
         <ProfileForm
           compact
-          submitLabel="Añadir jugador"
+          submitLabel={T('Añadir jugador')}
           onSave={(p) => {
             setPlayers([...players, p]);
             setAdding(false);
@@ -498,7 +501,7 @@ function PassSetup({ onBack, onStart }: { onBack: () => void; onStart: (c: RoomC
       ) : (
         players.length < 8 && (
           <button className="btn white" onClick={() => setAdding(true)}>
-            Añadir jugador
+            {T('Añadir jugador')}
           </button>
         )
       )}
@@ -506,7 +509,7 @@ function PassSetup({ onBack, onStart }: { onBack: () => void; onStart: (c: RoomC
         <>
           <SettingsEditor settings={settings} onChange={setSettings} bank={bank} youngest={youngest} pass />
           <button className="btn" disabled={players.length < 2 || pool < need} onClick={start}>
-            {players.length < 2 ? 'Hacen falta al menos 2 jugadores' : 'Empezar partida'}
+            {players.length < 2 ? T('Hacen falta al menos 2 jugadores') : T('Empezar partida')}
           </button>
         </>
       )}
@@ -537,8 +540,8 @@ function PassGame({ conn, onExit }: { conn: RoomConn; onExit: () => void }) {
     // tras "Jugar otra vez": vuelve a empezar directamente
     return (
       <div className="app">
-        <Bar title="Nueva partida" onBack={onExit} />
-        <button className="btn" onClick={host.start}>Empezar otra partida</button>
+        <Bar title={T('Nueva partida')} onBack={onExit} />
+        <button className="btn" onClick={host.start}>{T('Empezar otra partida')}</button>
       </div>
     );
   }
@@ -555,12 +558,12 @@ function PassGame({ conn, onExit }: { conn: RoomConn; onExit: () => void }) {
       const p = room.players[nextP];
       return (
         <div className="app">
-          <Bar title={`Pregunta ${g.qNum} de ${g.total}`} onBack={() => confirm('¿Salir de la partida?') && onExit()} />
+          <Bar title={T('Pregunta {n} de {t}', { n: g.qNum, t: g.total })} onBack={() => confirm(T('¿Salir de la partida?')) && onExit()} />
           <div className="handoff">
             <div className="big-emoji">{p.avatar}</div>
-            <div className="turn">{g.phase === 'lie' ? 'TURNO PARA MENTIR' : 'TURNO PARA VOTAR'}</div>
-            <div className="who">Pásale el móvil a {p.name}</div>
-            <p className="muted on-ink" style={{ margin: 0 }}>Que nadie más mire la pantalla.</p>
+            <div className="turn">{g.phase === 'lie' ? T('TURNO PARA MENTIR') : T('TURNO PARA VOTAR')}</div>
+            <div className="who">{T('Pásale el móvil a {name}', { name: p.name })}</div>
+            <p className="muted on-ink" style={{ margin: 0 }}>{T('Que nadie más mire la pantalla.')}</p>
             <button className="btn" onClick={() => setTurn(nextP)}>
               Soy {p.name}, ¡vamos!
             </button>
@@ -584,7 +587,7 @@ function PassGame({ conn, onExit }: { conn: RoomConn; onExit: () => void }) {
 
   return (
     <div className="app">
-      <Bar title={g.phase === 'final' ? 'Resultado final' : `Pregunta ${g.qNum} de ${g.total}`} onBack={() => confirm('¿Salir de la partida?') && onExit()} />
+      <Bar title={g.phase === 'final' ? T('Resultado final') : T('Pregunta {n} de {t}', { n: g.qNum, t: g.total })} onBack={() => confirm(T('¿Salir de la partida?')) && onExit()} />
       {g.phase === 'reveal' && (
         <>
           <QuestionCard room={room} />

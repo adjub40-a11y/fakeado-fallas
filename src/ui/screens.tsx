@@ -1,3 +1,4 @@
+import { T, getLang, setLang } from '../i18n';
 import { useEffect, useMemo, useState } from 'react';
 import QRCode from 'qrcode';
 import type { PlayerLevel, Question, RoomState, Settings } from '../engine/types';
@@ -24,7 +25,7 @@ export function Bar({ title, onBack }: { title: string; onBack?: () => void }) {
 /* ---------- perfil de jugador ---------- */
 
 export function ProfileForm({
-  initial, onSave, submitLabel = 'Guardar', compact = false,
+  initial, onSave, submitLabel = T('Guardar'), compact = false,
 }: { initial?: Partial<Profile>; onSave: (p: Profile) => void; submitLabel?: string; compact?: boolean }) {
   const [name, setName] = useState(initial?.name ?? '');
   const [avatar, setAvatar] = useState(initial?.avatar ?? AVATARS[Math.floor(Math.random() * AVATARS.length)]);
@@ -39,15 +40,15 @@ export function ProfileForm({
       }}
     >
       <label className="field">
-        Nombre o apodo
-        <input className="input" value={name} maxLength={16} onChange={(e) => setName(e.target.value)} placeholder="Por ejemplo, Lucía" autoComplete="off" />
-        <span className="hint">No uses apellidos: solo lo verán los que juegan contigo.</span>
+        {T('Nombre o apodo')}
+        <input className="input" value={name} maxLength={16} onChange={(e) => setName(e.target.value)} placeholder={T('Por ejemplo, Lucía')} autoComplete="off" />
+        <span className="hint">{T('No uses apellidos: solo lo verán los que juegan contigo.')}</span>
       </label>
       <div className="field">
-        Elige tu cargo fallero
+        {T('Elige tu cargo fallero')}
         <div className="avatars">
           {AVATARS.map((a) => (
-            <button type="button" key={a} aria-pressed={a === avatar} onClick={() => setAvatar(a)} aria-label={AVATAR_NAMES[a] ?? `Personaje ${a}`}>
+            <button type="button" key={a} aria-pressed={a === avatar} onClick={() => setAvatar(a)} aria-label={AVATAR_NAMES[a] ?? T('Personaje {a}', { a })}>
               <span>{a}</span>
               {AVATAR_NAMES[a] && <span className="av-name">{AVATAR_NAMES[a]}</span>}
             </button>
@@ -55,7 +56,7 @@ export function ProfileForm({
         </div>
       </div>
       <div className="field">
-        Edad
+        {T('Edad')}
         <div className="seg even">
           {LEVELS.map((l) => (
             <button type="button" key={l.value} aria-pressed={level === l.value} onClick={() => setLevel(l.value)}>
@@ -63,7 +64,7 @@ export function ProfileForm({
             </button>
           ))}
         </div>
-        <span className="hint">{level ? LEVELS.find((l) => l.value === level)!.hint : 'Sirve para elegir preguntas adecuadas para todos.'}</span>
+        <span className="hint">{level ? LEVELS.find((l) => l.value === level)!.hint : T('Sirve para elegir preguntas adecuadas para todos.')}</span>
       </div>
       <button className="btn" disabled={!ok}>
         {submitLabel}
@@ -96,7 +97,7 @@ export function SettingsEditor({ settings, onChange, bank, youngest, pass }: {
   return (
     <div className="card stack">
       <div className="field">
-        Rondas (3 preguntas cada una)
+        {T('Rondas (3 preguntas cada una)')}
         <div className="seg even">
           {[2, 3, 4].map((n) => (
             <button type="button" key={n} aria-pressed={settings.rounds === n} onClick={() => onChange({ ...settings, rounds: n })}>
@@ -107,9 +108,9 @@ export function SettingsEditor({ settings, onChange, bank, youngest, pass }: {
       </div>
       {!pass && (
         <div className="field">
-          Tiempo para pensar
+          {T('Tiempo para pensar')}
           <div className="seg even timers">
-            {([['rapido', '⚡ Rápido'], ['normal', 'Normal'], ['relajado', 'Relajado'], ['sin', 'Sin tiempo']] as const).map(([v, l]) => (
+            {([['rapido', T('⚡ Rápido')], ['normal', 'Normal'], ['relajado', 'Relajado'], ['sin', T('Sin tiempo')]] as const).map(([v, l]) => (
               <button type="button" key={v} aria-pressed={settings.timer === v} onClick={() => onChange({ ...settings, timer: v })}>
                 {l}
               </button>
@@ -118,18 +119,18 @@ export function SettingsEditor({ settings, onChange, bank, youngest, pass }: {
         </div>
       )}
       <div className="field">
-        Temas
+        {T('Temas')}
         <div className="seg">
           {Object.entries(CATEGORIES).map(([id, c]) => (
             <button type="button" key={id} aria-pressed={on(id)} onClick={() => toggleCat(id)}>
-              {c.emoji} {c.name}
+              {c.emoji} {T(c.name)}
             </button>
           ))}
         </div>
         <span className={pool < need ? 'error' : 'hint'}>
           {pool < need
-            ? `Solo hay ${pool} preguntas con estos temas y edades: elige más temas o menos rondas.`
-            : `${pool} preguntas disponibles para esta partida.`}
+            ? T('Solo hay {pool} preguntas con estos temas y edades: elige más temas o menos rondas.', { pool })
+            : T('{pool} preguntas disponibles para esta partida.', { pool })}
         </span>
       </div>
     </div>
@@ -148,11 +149,11 @@ export function RoomCode({ code }: { code: string }) {
   return (
     <div className="card row" style={{ alignItems: 'center', flexWrap: 'wrap' }}>
       <div style={{ flex: '1 1 180px' }}>
-        <div className="muted" style={{ fontWeight: 600 }}>Código de la sala</div>
+        <div className="muted" style={{ fontWeight: 600 }}>{T('Código de la sala')}</div>
         <div className="code-big">{code}</div>
         <div className="hint" style={{ marginTop: 8 }}>
-          En otro móvil: abre ¡Fakeado!, toca «Unirme a una partida» y escribe el código.
-          {qr ? ' O escanea el QR para jugar desde el navegador.' : ''}
+          {T('En otro móvil: abre ¡Fakeado!, toca «Unirme a una partida» y escribe el código.')}
+          {qr ? T(' O escanea el QR para jugar desde el navegador.') : ''}
         </div>
       </div>
       {qr && <img className="qr" src={qr} alt={`QR para unirse a la sala ${code}`} style={{ flex: '0 0 auto' }} />}
@@ -171,7 +172,7 @@ export function ParentGate({ onPass, onCancel }: { onPass: () => void; onCancel:
   const [v, setV] = useState('');
   const [err, setErr] = useState(false);
   return (
-    <div className="modal-back" role="dialog" aria-modal="true" aria-label="Pregunta para adultos">
+    <div className="modal-back" role="dialog" aria-modal="true" aria-label={T('Pregunta para adultos')}>
       <form
         className="card modal stack"
         onSubmit={(e) => {
@@ -183,12 +184,12 @@ export function ParentGate({ onPass, onCancel }: { onPass: () => void; onCancel:
           }
         }}
       >
-        <h2>Solo para adultos</h2>
+        <h2>{T('Solo para adultos')}</h2>
         <p style={{ margin: 0 }}>
           Para continuar, escribe cuánto es {q.a} × {q.b}.
         </p>
         <input className="input" inputMode="numeric" value={v} onChange={(e) => setV(e.target.value.replace(/\D/g, ''))} autoFocus aria-label="Resultado" />
-        {err && <div className="error">No es correcto. Pide ayuda a un adulto.</div>}
+        {err && <div className="error">{T('No es correcto. Pide ayuda a un adulto.')}</div>}
         <div className="row">
           <button type="button" className="btn white small" onClick={onCancel}>
             Cancelar
@@ -220,23 +221,23 @@ export function Store({ bank, onBack }: { bank: Question[]; onBack: () => void }
       const r = await buy();
       if (r === 'ok') {
         setUnlocked(true);
-        setMsg('¡Listo! Ya tienes todas las preguntas.');
-      } else if (r === 'error') setMsg('No se pudo completar la compra. Inténtalo más tarde.');
-      else if (r === 'unavailable') setMsg('La tienda no está disponible ahora mismo.');
+        setMsg(T('¡Listo! Ya tienes todas las preguntas.'));
+      } else if (r === 'error') setMsg(T('No se pudo completar la compra. Inténtalo más tarde.'));
+      else if (r === 'unavailable') setMsg(T('La tienda no está disponible ahora mismo.'));
     } else {
       const ok = await restore();
       setUnlocked(ok);
-      setMsg(ok ? 'Compra recuperada.' : 'No hemos encontrado ninguna compra en esta cuenta.');
+      setMsg(ok ? T('Compra recuperada.') : T('No hemos encontrado ninguna compra en esta cuenta.'));
     }
   }
 
   return (
     <div className="app">
-      <Bar title="Todas las preguntas" onBack={onBack} />
+      <Bar title={T('Todas las preguntas')} onBack={onBack} />
       <div className="card stack">
         {unlocked ? (
           <>
-            <h2>Lo tienes todo desbloqueado</h2>
+            <h2>{T('Lo tienes todo desbloqueado')}</h2>
             <p style={{ margin: 0 }}>Puedes jugar con las {total} preguntas. Los que se unan a tus partidas también, sin pagar nada.</p>
           </>
         ) : (
@@ -248,7 +249,7 @@ export function Store({ bank, onBack }: { bank: Question[]; onBack: () => void }
               La versión gratis trae {free} preguntas. Con un único pago desbloqueas las {total}, y las nuevas que vayamos añadiendo.
             </p>
             <p className="muted" style={{ margin: 0 }}>
-              Basta con que pague quien crea la sala: el resto de la familia se une gratis. Sin anuncios y sin suscripciones.
+              {T('Basta con que pague quien crea la sala: el resto de la familia se une gratis. Sin anuncios y sin suscripciones.')}
             </p>
             {native ? (
               <button className="btn" onClick={() => setGate('buy')}>
@@ -256,7 +257,7 @@ export function Store({ bank, onBack }: { bank: Question[]; onBack: () => void }
               </button>
             ) : (
               <p className="banner" style={{ margin: 0 }}>
-                El desbloqueo se compra desde la app de ¡Fakeado! en Google Play o App Store.
+                {T('El desbloqueo se compra desde la app de ¡Fakeado! en Google Play o App Store.')}
               </p>
             )}
           </>
@@ -264,7 +265,7 @@ export function Store({ bank, onBack }: { bank: Question[]; onBack: () => void }
         {msg && <div className="banner">{msg}</div>}
         {native && !unlocked && (
           <button className="btn white small" onClick={() => setGate('restore')}>
-            Restaurar compras
+            {T('Restaurar compras')}
           </button>
         )}
       </div>
@@ -278,27 +279,25 @@ export function Store({ bank, onBack }: { bank: Question[]; onBack: () => void }
 export function HowTo({ onBack }: { onBack: () => void }) {
   return (
     <div className="app">
-      <Bar title="Cómo se juega" onBack={onBack} />
+      <Bar title={T('Cómo se juega')} onBack={onBack} />
       <div className="card prose">
         <ol>
-          <li>Sale una pregunta con una respuesta real sorprendente, por ejemplo: «El pulpo tiene ___ corazones».</li>
-          <li>Cada uno escribe en su móvil una respuesta falsa que parezca verdad. Los peques eligen entre tres mentiras.</li>
-          <li>Se mezclan todas las respuestas con la verdadera y cada uno vota cuál cree que es la real.</li>
-          <li>Se descubre quién ha engañado a quién.</li>
+          <li>{T('Sale una pregunta con una respuesta real sorprendente, por ejemplo: «El pulpo tiene ___ corazones».')}</li>
+          <li>{T('Cada uno escribe en su móvil una respuesta falsa que parezca verdad. Los peques eligen entre tres mentiras.')}</li>
+          <li>{T('Se mezclan todas las respuestas con la verdadera y cada uno vota cuál cree que es la real.')}</li>
+          <li>{T('Se descubre quién ha engañado a quién.')}</li>
         </ol>
         <p>
-          <strong>Puntos:</strong> 1.000 por acertar la verdad y 500 por cada jugador que cae en tu mentira. Si aciertas varias seguidas, ganas
-          un extra de racha 🔥 (+250, +500 y hasta +750). La última ronda vale el doble.
+          <strong>{T('Puntos:')}</strong> {T('1.000 por acertar la verdad y 500 por cada jugador que cae en tu mentira. Si aciertas varias seguidas, ganas un extra de racha 🔥 (+250, +500 y hasta +750). La última ronda vale el doble.')}
         </p>
         <p>
-          <strong>Varios móviles:</strong> uno crea la sala y los demás se unen con el código. Si tenéis una tablet o un ordenador, podéis usarlo como
-          pantalla grande para que todos vean las respuestas.
+          <strong>{T('Varios móviles:')}</strong> {T('uno crea la sala y los demás se unen con el código. Si tenéis una tablet o un ordenador, podéis usarlo como pantalla grande para que todos vean las respuestas.')}
         </p>
         <p>
-          <strong>Un solo móvil:</strong> elige «Jugar con un solo móvil» y os lo vais pasando por turnos.
+          <strong>{T('Un solo móvil:')}</strong> {T('elige «Jugar con un solo móvil» y os lo vais pasando por turnos.')}
         </p>
         <p style={{ margin: 0 }}>
-          <strong>Consejo:</strong> la mejor mentira no es la más loca, sino la que parece aburridamente verdad.
+          <strong>{T('Consejo:')}</strong> {T('la mejor mentira no es la más loca, sino la que parece aburridamente verdad.')}
         </p>
       </div>
     </div>
@@ -309,7 +308,7 @@ export function HowTo({ onBack }: { onBack: () => void }) {
 
 export function PlayerChips({ room, conn, canKick }: { room: RoomState; conn?: RoomConn; canKick?: boolean }) {
   const ids = H.activePlayers(room);
-  if (!ids.length) return <p className="muted on-ink" style={{ margin: 0 }}>Todavía no hay nadie. ¡Comparte el código!</p>;
+  if (!ids.length) return <p className="muted on-ink" style={{ margin: 0 }}>{T('Todavía no hay nadie. ¡Comparte el código!')}</p>;
   return (
     <div className="players">
       {ids.map((pid) => {
@@ -319,13 +318,34 @@ export function PlayerChips({ room, conn, canKick }: { room: RoomState; conn?: R
             <span className="av">{p.avatar}</span>
             {p.name}
             {canKick && conn && pid !== conn.myId && (
-              <button onClick={() => conn.kick(pid)} aria-label={`Quitar a ${p.name}`}>
+              <button onClick={() => conn.kick(pid)} aria-label={T('Quitar a {name}', { name: p.name })}>
                 ✕
               </button>
             )}
           </span>
         );
       })}
+    </div>
+  );
+}
+
+/* ---------- selector de idioma ---------- */
+
+export function LangSwitch() {
+  const cur = getLang();
+  const pick = (l: 'es' | 'va') => {
+    if (l === cur) return;
+    setLang(l);
+    location.reload();
+  };
+  return (
+    <div className="seg even lang-switch" role="group" aria-label="Idioma">
+      <button type="button" aria-pressed={cur === 'es'} onClick={() => pick('es')}>
+        Castellano
+      </button>
+      <button type="button" aria-pressed={cur === 'va'} onClick={() => pick('va')}>
+        Valencià
+      </button>
     </div>
   );
 }

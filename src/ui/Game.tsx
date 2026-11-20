@@ -1,3 +1,4 @@
+import { T } from '../i18n';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { RoomConn } from '../net/conn';
 import type { RoomState } from '../engine/types';
@@ -36,10 +37,10 @@ export function Meta({ room, conn }: { room: RoomState; conn: RoomConn }) {
     <div className="meta">
       <span>
         Pregunta {g.qNum} de {g.total}
-        {g.multiplier > 1 ? ' · ¡puntos dobles!' : ''}
+        {g.multiplier > 1 ? T(' · ¡puntos dobles!') : ''}
       </span>
       {left !== null && (g.phase === 'lie' || g.phase === 'vote') && (
-        <span className={'timer' + (left <= 5 ? ' hurry' : '')} aria-label={`${left} segundos`}>
+        <span className={'timer' + (left <= 5 ? ' hurry' : '')} aria-label={T('{left} segundos', { left })}>
           {left}
         </span>
       )}
@@ -56,10 +57,10 @@ export function QuestionCard({ room }: { room: RoomState }) {
   return (
     <div className="question">
       <span className="cat">
-        {cat?.emoji} {cat?.name}
+        {cat?.emoji} {cat ? T(cat.name) : null}
         {canSpeak() && (
           <button className="link" style={{ color: 'var(--ink-soft)', padding: '0 0 0 10px', fontSize: 15 }} onClick={() => speak(q.q)}>
-            Leer en voz alta
+            {T('Leer en voz alta')}
           </button>
         )}
       </span>
@@ -77,7 +78,7 @@ function Waiting({ room, kind }: { room: RoomState; kind: 'lie' | 'vote' }) {
   return (
     <div className="stack">
       <p className="on-ink" style={{ margin: 0 }}>
-        {kind === 'lie' ? 'Mentiras listas' : 'Votos'}: {n} de {act.length}
+        {kind === 'lie' ? T('Mentiras listas') : T('Votos')}: {n} de {act.length}
       </p>
       <div className="players">
         {act.map((pid) => (
@@ -112,8 +113,8 @@ export function LiePhase({ room, conn, pid, onSent }: { room: RoomState; conn: R
 
   async function send(t: string) {
     const clean = t.replace(/\s+/g, ' ').trim();
-    if (!clean) return setErr('Escribe una respuesta inventada.');
-    if (isOffensive(clean)) return setErr('Esa palabra no vale en este juego. Prueba con otra.');
+    if (!clean) return setErr(T('Escribe una respuesta inventada.'));
+    if (isOffensive(clean)) return setErr(T('Esa palabra no vale en este juego. Prueba con otra.'));
     setSending(true);
     sfx.send();
     buzz();
@@ -127,7 +128,7 @@ export function LiePhase({ room, conn, pid, onSent }: { room: RoomState; conn: R
     return (
       <div className="stack pop">
         <div className="card paper center">
-          <h2>Mentira enviada</h2>
+          <h2>{T('Mentira enviada')}</h2>
           <p className="muted" style={{ margin: 0 }}>«{sent.text}». Ahora a esperar a los demás.</p>
         </div>
         {!conn.local && <Waiting room={room} kind="lie" />}
@@ -138,12 +139,12 @@ export function LiePhase({ room, conn, pid, onSent }: { room: RoomState; conn: R
   const kid = me?.level === 1 && g.question.kids.length > 0;
   return (
     <div className="stack">
-      {reject === 'truth' && <div className="banner">¡Has escrito la verdad! Inventa otra respuesta para engañar a los demás.</div>}
-      {reject === 'near' && <div className="banner">¡Casi es la verdad! Inventa algo más alejado para que sea una mentira.</div>}
-      {reject === 'bad' && <div className="banner red">Esa respuesta no vale. Prueba con otra.</div>}
+      {reject === 'truth' && <div className="banner">{T('¡Has escrito la verdad! Inventa otra respuesta para engañar a los demás.')}</div>}
+      {reject === 'near' && <div className="banner">{T('¡Casi es la verdad! Inventa algo más alejado para que sea una mentira.')}</div>}
+      {reject === 'bad' && <div className="banner red">{T('Esa respuesta no vale. Prueba con otra.')}</div>}
       {kid ? (
         <>
-          <p className="on-ink" style={{ margin: 0, fontSize: 20 }}>Elige la mentira que quieres colar:</p>
+          <p className="on-ink" style={{ margin: 0, fontSize: 20 }}>{T('Elige la mentira que quieres colar:')}</p>
           <div className="kids">
             {g.question.kids.map((k) => (
               <button key={k} className="opt" disabled={sending} onClick={() => send(k)}>
@@ -161,8 +162,8 @@ export function LiePhase({ room, conn, pid, onSent }: { room: RoomState; conn: R
           }}
         >
           <label className="field on-ink">
-            Inventa una respuesta falsa que parezca verdad
-            <span className="hint">Por cada jugador que caiga en tu mentira: +500</span>
+            {T('Inventa una respuesta falsa que parezca verdad')}
+            <span className="hint">{T('Por cada jugador que caiga en tu mentira: +500')}</span>
             <input
               className="input"
               value={text}
@@ -174,7 +175,7 @@ export function LiePhase({ room, conn, pid, onSent }: { room: RoomState; conn: R
                 setText(e.target.value);
                 setErr(null);
               }}
-              placeholder="Tu mentira"
+              placeholder={T('Tu mentira')}
             />
           </label>
           {text.trim() && (
@@ -196,12 +197,12 @@ export function LiePhase({ room, conn, pid, onSent }: { room: RoomState; conn: R
                 sfx.tap();
               }}
             >
-              💡 {idea < 0 ? '¿Sin ideas? Dame una' : 'Otra idea'}
+              💡 {idea < 0 ? T('¿Sin ideas? Dame una') : T('Otra idea')}
             </button>
           )}
           {err && <div className="banner red">{err}</div>}
           <button className="btn" disabled={sending || !text.trim()}>
-            Enviar mentira
+            {T('Enviar mentira')}
           </button>
         </form>
       )}
@@ -229,7 +230,7 @@ export function VotePhase({ room, conn, pid, onSent }: { room: RoomState; conn: 
     return (
       <div className="stack pop">
         <div className="card paper center">
-          <h2>Voto enviado</h2>
+          <h2>{T('Voto enviado')}</h2>
           <p className="muted" style={{ margin: 0 }}>Has elegido «{o?.text}».</p>
         </div>
         {!conn.local && <Waiting room={room} kind="vote" />}
@@ -239,7 +240,7 @@ export function VotePhase({ room, conn, pid, onSent }: { room: RoomState; conn: 
   return (
     <div className="stack">
       <p className="on-ink" style={{ margin: 0, fontSize: 20 }}>
-        ¿Cuál es la verdad? <span className="hint">Si aciertas: +1000</span>
+        {T('¿Cuál es la verdad?')} <span className="hint">{T('Si aciertas: +1000')}</span>
       </p>
       <div className="options">
         {(g.options || []).map((o, i) => (
@@ -327,17 +328,17 @@ export function Reveal({ room, host, conn }: { room: RoomState; host: HostApi; c
         if (id === rv.truthId)
           return (
             <div key={id} className="reveal-item truth pop">
-              <div className="label">La verdad</div>
+              <div className="label">{T('La verdad')}</div>
               <div className="text">{rv.answer}</div>
               <div className="who">
-                {fell.length ? `La acertaron: ${fell.map((p) => nameOf(room, p)).join(', ')}` : 'Nadie la acertó.'}
+                {fell.length ? T('La acertaron: {names}', { names: fell.map((p) => nameOf(room, p)).join(', ') }) : T('Nadie la acertó.')}
               </div>
             </div>
           );
         return (
           <div key={id} className="reveal-item pop">
             <div className="text">{o?.text}</div>
-            <div className="who">{auth.length ? `Mentira de ${auth.map((p) => nameOf(room, p)).join(' y ')}` : 'Mentira de la casa'}</div>
+            <div className="who">{auth.length ? T('Mentira de {names}', { names: auth.map((p) => nameOf(room, p)).join(T(' y ')) }) : T('Mentira de la casa')}</div>
             {fell.length > 0 && (
               <div className="fell">
                 {fell.map((p) => (
@@ -361,14 +362,14 @@ export function Reveal({ room, host, conn }: { room: RoomState; host: HostApi; c
               key={g.qNum}
               seconds={10}
               onGo={host.next}
-              label={g.qNum >= g.total ? 'Ver resultado final' : g.qNum % room.settings.perRound === 0 ? 'Ver marcador' : 'Siguiente pregunta'}
+              label={g.qNum >= g.total ? T('Ver resultado final') : g.qNum % room.settings.perRound === 0 ? T('Ver marcador') : T('Siguiente pregunta')}
             />
           ) : (
-            !conn.local && <p className="muted on-ink center">El anfitrión pasará a la siguiente.</p>
+            !conn.local && <p className="muted on-ink center">{T('El anfitrión pasará a la siguiente.')}</p>
           )}
         </>
       )}
-      {!done && <p className="muted on-ink center" style={{ margin: 0, fontSize: 15 }}>Toca para ir más rápido</p>}
+      {!done && <p className="muted on-ink center" style={{ margin: 0, fontSize: 15 }}>{T('Toca para ir más rápido')}</p>}
     </div>
   );
 }
@@ -388,7 +389,7 @@ function Gains({ room }: { room: RoomState }) {
         <span key={r.pid} className="chip">
           <span className="av">{r.avatar}</span>
           {r.name} +{gained[r.pid]}
-          {streak[r.pid] ? <span className="fire" title={`${streak[r.pid]} aciertos seguidos`}>🔥{streak[r.pid]}</span> : null}
+          {streak[r.pid] ? <span className="fire" title={T('{n} aciertos seguidos', { n: streak[r.pid] })}>🔥{streak[r.pid]}</span> : null}
         </span>
       ))}
     </div>
@@ -413,8 +414,8 @@ export function Ranking({ room, gains }: { room: RoomState; gains?: Record<strin
           <span className="pos">{i + 1}º</span>
           <span className="av">{r.avatar}</span>
           <span className="name">{r.name}</span>
-          {gains && prevPos[r.pid] > i && <span className="move up" aria-label={`sube ${prevPos[r.pid] - i}`}>▲{prevPos[r.pid] - i}</span>}
-          {gains && prevPos[r.pid] < i && <span className="move down" aria-label={`baja ${i - prevPos[r.pid]}`}>▼{i - prevPos[r.pid]}</span>}
+          {gains && prevPos[r.pid] > i && <span className="move up" aria-label={T('sube {n}', { n: prevPos[r.pid] - i })}>▲{prevPos[r.pid] - i}</span>}
+          {gains && prevPos[r.pid] < i && <span className="move down" aria-label={T('baja {n}', { n: i - prevPos[r.pid] })}>▼{i - prevPos[r.pid]}</span>}
           <span className="pts">{gains ? <CountUp from={before(r.pid, r.score)} to={r.score} /> : r.score.toLocaleString('es-ES')}</span>
         </div>
       ))}
@@ -433,12 +434,12 @@ export function Scores({ room, host, conn }: { room: RoomState; host: HostApi; c
       </div>
       <Ranking room={room} gains={roundGains(room, g.round)} />
       {nextRound === room.settings.rounds && room.settings.rounds > 1 && (
-        <div className="banner">Última ronda: ¡todo vale el doble!</div>
+        <div className="banner">{T('Última ronda: ¡todo vale el doble!')}</div>
       )}
       {host ? (
-        <AutoNext key={g.round} seconds={12} onGo={host.next} label={`Empezar ronda ${nextRound}`} />
+        <AutoNext key={g.round} seconds={12} onGo={host.next} label={T('Empezar ronda {n}', { n: nextRound })} />
       ) : (
-        !conn.local && <p className="muted on-ink center">Esperando al anfitrión…</p>
+        !conn.local && <p className="muted on-ink center">{T('Esperando al anfitrión…')}</p>
       )}
     </div>
   );
@@ -452,9 +453,9 @@ export function xupitoFor(room: RoomState, rows: ReturnType<typeof H.ranking>) {
   const winners = rows.filter((r) => r.score === top.score);
   const adults = winners.filter((r) => room.players[r.pid]?.level === 4).length;
   const kids = winners.length - adults;
-  if (adults && kids) return { kind: 'mix', emoji: '🍩🍫', text: '¡Una de bunyols per als majors i xupito de xocolata per als xiquets!' };
-  if (adults) return { kind: 'bunyols', emoji: '🍩', text: '¡Una de bunyols!' };
-  return { kind: 'xocolata', emoji: '🍫', text: '¡Xupito de xocolata!' };
+  if (adults && kids) return { kind: 'mix', emoji: '🍩🍫', text: T('¡Una de bunyols per als majors i xupito de xocolata per als xiquets!') };
+  if (adults) return { kind: 'bunyols', emoji: '🍩', text: T('¡Una de bunyols!') };
+  return { kind: 'xocolata', emoji: '🍫', text: T('¡Xupito de xocolata!') };
 }
 
 export function Final({ room, host, onExit }: { room: RoomState; host: HostApi; onExit: () => void }) {
@@ -470,7 +471,7 @@ export function Final({ room, host, onExit }: { room: RoomState; host: HostApi; 
     <div className="stack">
       <div className="center on-ink pop">
         <div className="big-emoji">{tie ? '🤝' : top?.avatar}</div>
-        <h2 className="title-big">{tie ? '¡Empate en cabeza!' : `¡Gana ${top?.name}!`}</h2>
+        <h2 className="title-big">{tie ? T('¡Empate en cabeza!') : T('¡Gana {name}!', { name: top?.name })}</h2>
       </div>
       {xupito && (
         <div className={'xupito ' + xupito.kind} role="status">
@@ -483,24 +484,24 @@ export function Final({ room, host, onExit }: { room: RoomState; host: HostApi; 
         <div className="card paper stack" style={{ gap: 8 }}>
           {aw.bestLiar && (
             <div>
-              <strong>Mejor mentiroso:</strong> {nameOf(room, aw.bestLiar.pid)} ({aw.bestLiar.n} {aw.bestLiar.n === 1 ? 'engaño' : 'engaños'})
+              <strong>{T('Mejor mentiroso:')}</strong> {nameOf(room, aw.bestLiar.pid)} ({aw.bestLiar.n} {aw.bestLiar.n === 1 ? 'engaño' : 'engaños'})
             </div>
           )}
           {aw.hardestToFool && (
             <div>
-              <strong>Más difícil de engañar:</strong> {nameOf(room, aw.hardestToFool.pid)} ({aw.hardestToFool.n}{' '}
-              {aw.hardestToFool.n === 1 ? 'vez fakeado' : 'veces fakeado'})
+              <strong>{T('Más difícil de engañar:')}</strong> {nameOf(room, aw.hardestToFool.pid)} ({aw.hardestToFool.n}{' '}
+              {aw.hardestToFool.n === 1 ? T('vez fakeado') : T('veces fakeado')})
             </div>
           )}
         </div>
       )}
       {host && (
         <button className="btn" onClick={host.backToLobby}>
-          Jugar otra vez
+          {T('Jugar otra vez')}
         </button>
       )}
       <button className="btn white" onClick={onExit}>
-        Salir al inicio
+        {T('Salir al inicio')}
       </button>
     </div>
   );

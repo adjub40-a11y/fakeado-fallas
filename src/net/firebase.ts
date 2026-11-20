@@ -1,3 +1,4 @@
+import { T } from '../i18n';
 // Conexión multimóvil con Firebase Realtime Database + autenticación anónima
 import { initializeApp, type FirebaseApp } from 'firebase/app';
 import { getAuth, signInAnonymously, onAuthStateChanged, type Auth } from 'firebase/auth';
@@ -20,7 +21,7 @@ export function isOnlineAvailable(): boolean {
 }
 
 async function ensure(): Promise<string> {
-  if (!firebaseConfigured()) throw new Error('El juego online no está configurado.');
+  if (!firebaseConfigured()) throw new Error(T('El juego online no está configurado.'));
   if (!app) {
     app = initializeApp(firebaseConfig);
     await startAppCheck(app);
@@ -130,7 +131,7 @@ export async function createOnlineRoom(hostPlays: boolean, settings: Settings): 
       return new FirebaseRoom(code, uid, true);
     }
   }
-  throw new Error('No se pudo crear la sala. Inténtalo de nuevo.');
+  throw new Error(T('No se pudo crear la sala. Inténtalo de nuevo.'));
 }
 
 export type JoinError = 'not-found' | 'started' | 'full';

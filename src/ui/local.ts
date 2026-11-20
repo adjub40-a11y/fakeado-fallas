@@ -1,3 +1,4 @@
+import { T } from '../i18n';
 // Datos guardados en el dispositivo: perfil, preferencias y preguntas ya vistas
 import type { PlayerLevel } from '../engine/types';
 
@@ -10,19 +11,19 @@ export interface Profile {
 export const AVATARS = ['👑', '🎖️', '👸', '🧒', '☕', '🎟️', '🎉', '🧨', '🎨', '🎺', '💰', '📜', '🥘', '🍩', '💐', '🚒', '🥁', '🔥', '📸', '💡', '🪅', '🎭', '🎤', '🧹'];
 /** Nombre de cada personaje fallero (se muestra al elegirlo) */
 export const AVATAR_NAMES: Record<string, string> = {
-  '👑': 'Fallera Mayor',
-  '🎖️': 'Presidente',
-  '👸': 'FM Infantil',
-  '🧒': 'Presidente infantil',
-  '☕': 'El del bar',
-  '🎟️': 'El de la lotería',
-  '🎉': 'El de festejos',
+  '👑': T('Fallera Mayor'),
+  '🎖️': T('Presidente'),
+  '👸': T('FM Infantil'),
+  '🧒': T('Presidente infantil'),
+  '☕': T('El del bar'),
+  '🎟️': T('El de la lotería'),
+  '🎉': T('El de festejos'),
   '🧨': 'Pirotècnic',
-  '🎨': 'Artista faller',
-  '🎺': 'El de la banda',
+  '🎨': T('Artista faller'),
+  '🎺': T('El de la banda'),
   '💰': 'Tresorer',
   '📜': 'Secretari',
-  '🥘': 'El de la paella',
+  '🥘': T('El de la paella'),
   '🍩': 'Bunyolera',
   '💐': "L'Ofrena",
   '🚒': 'Bomber',
@@ -30,17 +31,17 @@ export const AVATAR_NAMES: Record<string, string> = {
   '🔥': 'Cremador',
   '📸': 'Fotògraf',
   '💡': 'El de les llums',
-  '🪅': 'Delegada infantil',
-  '🎭': 'El ninot',
-  '🎤': 'El de la verbena',
-  '🧹': 'El que escombra',
+  '🪅': T('Delegada infantil'),
+  '🎭': T('El ninot'),
+  '🎤': T('El de la verbena'),
+  '🧹': T('El que escombra'),
 };
 
 export const LEVELS: { value: PlayerLevel; label: string; hint: string }[] = [
-  { value: 1, label: 'Peques', hint: '6 a 8 años · eliges la mentira, sin escribir' },
-  { value: 2, label: 'Junior', hint: '9 a 12 años' },
-  { value: 3, label: 'Teen', hint: '13 a 16 años' },
-  { value: 4, label: 'Adulto', hint: '17 o más' },
+  { value: 1, label: T('Peques'), hint: T('6 a 8 años · eliges la mentira, sin escribir') },
+  { value: 2, label: 'Junior', hint: T('9 a 12 años') },
+  { value: 3, label: 'Teen', hint: T('13 a 16 años') },
+  { value: 4, label: T('Adulto'), hint: T('17 o más') },
 ];
 
 function read<T>(k: string, def: T): T {

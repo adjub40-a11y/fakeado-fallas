@@ -1,3 +1,4 @@
+import { T } from '../i18n';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { RoomConn } from '../net/conn';
 import type { HostSecret, Question, RoomState } from '../engine/types';
@@ -55,7 +56,7 @@ export function useHost(conn: RoomConn | null, roomRef: React.MutableRefObject<R
         roomRef.current = step.room;
         await conn.hostWrite(prev, step.room);
       } catch (e) {
-        setError('Se ha perdido la conexión. Comprueba internet.');
+        setError(T('Se ha perdido la conexión. Comprueba internet.'));
         console.error(e);
       } finally {
         busy.current = false;
@@ -85,7 +86,7 @@ export function useHost(conn: RoomConn | null, roomRef: React.MutableRefObject<R
       addSeen(step.secret.order);
       await apply(step, room);
     } catch (e: any) {
-      setError(e?.message || 'No se pudo empezar la partida.');
+      setError(e?.message || T('No se pudo empezar la partida.'));
     }
   }, [conn, bank, apply, roomRef]);
 

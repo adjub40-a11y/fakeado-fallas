@@ -1,3 +1,4 @@
+import { getLang } from '../i18n';
 // Sonidos sintetizados (sin archivos) y vibración
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import { Capacitor } from '@capacitor/core';
@@ -69,8 +70,9 @@ export function canSpeak(): boolean {
 export function speak(text: string) {
   if (!canSpeak()) return;
   window.speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(text.replace(/_{2,}/g, ' algo '));
-  u.lang = 'es-ES';
+  const va = getLang() === 'va';
+  const u = new SpeechSynthesisUtterance(text.replace(/_{2,}/g, va ? ' alguna cosa ' : ' algo '));
+  u.lang = va ? 'ca-ES' : 'es-ES';
   u.rate = 0.95;
   window.speechSynthesis.speak(u);
 }

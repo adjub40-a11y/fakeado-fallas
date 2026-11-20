@@ -1,3 +1,4 @@
+import { T } from '../i18n';
 // Piezas de ritmo: pasos de la ronda, barra de tiempo, presentación de cada pregunta,
 // avance automático y marcadores animados. Compartido entre ¡Fakeado! y ¡Fakeado! Fallas.
 import { useEffect, useRef, useState } from 'react';
@@ -9,15 +10,15 @@ import { sfx } from './fx';
 /* ---------- 1 Miente · 2 Vota · 3 Descubre ---------- */
 
 const STEPS = [
-  { phase: 'lie', icon: '✍️', label: 'Miente' },
-  { phase: 'vote', icon: '🗳️', label: 'Vota' },
-  { phase: 'reveal', icon: '🎭', label: 'Descubre' },
+  { phase: 'lie', icon: '✍️', label: T('Miente') },
+  { phase: 'vote', icon: '🗳️', label: T('Vota') },
+  { phase: 'reveal', icon: '🎭', label: T('Descubre') },
 ] as const;
 
 export function PhaseSteps({ phase }: { phase: string }) {
   const cur = STEPS.findIndex((s) => s.phase === phase);
   return (
-    <ol className="steps" aria-label="Fases de la pregunta">
+    <ol className="steps" aria-label={T('Fases de la pregunta')}>
       {STEPS.map((s, i) => (
         <li key={s.phase} className={i === cur ? 'on' : i < cur ? 'past' : ''} aria-current={i === cur ? 'step' : undefined}>
           <span aria-hidden="true">{s.icon}</span> {s.label}
@@ -62,11 +63,11 @@ export function QuestionIntro({ room }: { room: RoomState }) {
     <div className="intro" aria-hidden="true" onClick={() => setShow(false)}>
       <div className="intro-card">
         <div className="intro-num">
-          {lastOfAll ? '¡ÚLTIMA PREGUNTA!' : `PREGUNTA ${g.qNum}`}
+          {lastOfAll ? T('¡ÚLTIMA PREGUNTA!') : T('PREGUNTA {n}', { n: g.qNum })}
           <small> / {g.total}</small>
         </div>
         <div className="intro-cat">
-          <span>{cat?.emoji}</span> {cat?.name}
+          <span>{cat?.emoji}</span> {cat ? T(cat.name) : null}
         </div>
         {g.multiplier > 1 && <div className="intro-x2">PUNTOS DOBLES</div>}
       </div>
@@ -107,7 +108,7 @@ export function AutoNext({ label, onGo, seconds = 10 }: { label: string; onGo: (
       </button>
       {!paused && (
         <button className="link" style={{ alignSelf: 'center' }} onClick={() => setPaused(true)}>
-          Esperar, que estamos comentando
+          {T('Esperar, que estamos comentando')}
         </button>
       )}
     </div>
