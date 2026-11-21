@@ -79,7 +79,7 @@ workflows:
         bundle_identifier: es.fakeado.fallas
       vars:
         # Número que App Store Connect da a tu app (Información de la app > Apple ID)
-        APP_STORE_APPLE_ID: 0000000000
+        APP_STORE_APPLE_ID: 6837675246
     scripts:
       - *install
       - name: Compilar la web del juego
