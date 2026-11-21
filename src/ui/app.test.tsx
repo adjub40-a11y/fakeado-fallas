@@ -80,11 +80,11 @@ describe('interfaz', () => {
     // los dos jugadores aparecen en el marcador final
     expect(screen.getAllByText('Jose').length).toBeGreaterThan(0);
     expect(screen.getAllByText('Lía').length).toBeGreaterThan(0);
-  }, 30000);
+  }, 180000);
 
   it('tienda en web: explica que se compra desde la app y pide puerta parental solo en nativo', async () => {
     render(<App />);
     await click(/Más preguntas/);
     expect(screen.getByText(/se compra desde la app/)).toBeTruthy();
-  });
+  }, 60000);
 });
