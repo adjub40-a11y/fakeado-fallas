@@ -29,6 +29,9 @@ TODO EL MUNDO FALLERO
 • Todas las Falleras Mayores de Valencia desde 1931 y los primeros premios de Sección Especial desde 1942.
 • Hemeroteca para consultar Falleras Mayores, Infantiles y palmarés.
 
+EN CASTELLANO O EN VALENCIÀ
+Elige el idioma en la pantalla de inicio: cambian los textos y las más de 600 preguntas.
+
 LA MEUA FALLA
 Mete los cargos de tu comisión y vuestras propias preguntas: saldrán en las partidas que crees desde tu móvil.
 
@@ -79,6 +82,40 @@ Mascletà, Ofrenda, ninots y Falleras Mayores: cuela tus mentiras falleras y des
 
 **Descripción**: usa la misma descripción completa de Google Play.
 
+**Ficha en valenciano** (App Store Connect › Información de la app › idioma **Catalán**; Apple no tiene «valenciano» aparte)
+- Nombre: `¡Fakeado! Falles`
+- Subtítulo: `Mentides i veritats falleres`
+- Texto promocional: `Mascletà, Ofrena, ninots i Falleres Majors: cola les teues mentides falleres i descobrix la veritat. Diversos mòbils, una partida.`
+- Palabras clave: `falles,valencia,fallera,mascleta,trivial,preguntes,mentides,quiz,casal,ninot,valencià,joc`
+- Descripción:
+```
+¡Fakeado! Falles és el joc de preguntes i farols sobre les Falles de València, per a jugar al casal, en família o amb la comissió.
+
+COM ES JUGA
+Ix una pregunta fallera amb una resposta real: «La falla més alta de la història mesurava ___ metres». Cada jugador escriu en el seu mòbil una resposta falsa que parega veritat. Es mesclen totes amb la vertadera i cadascú vota quina és la real. Guanyes punts per encertar i per cada faller que cau en la teua mentida. ¡Fakeado!
+
+TOT EL MÓN FALLER
+• Història, plantà, cremà, mascletà, Ofrena, Crida i Nit del Foc.
+• Indumentària, pólvora, ninots, música, bunyols i parlem valencià.
+• Totes les Falleres Majors de València des de 1931 i els primers premis de Secció Especial des de 1942.
+
+EN VALENCIÀ O EN CASTELLÀ
+Tria l'idioma en la pantalla d'inici: canvien els textos i les més de 600 preguntes.
+
+LA MEUA FALLA
+Posa els càrrecs de la teua comissió i les vostres pròpies preguntes.
+
+PER A MENUTS I MAJORS
+• Mode Menuts: els xiquets trien entre tres mentides, sense escriure.
+• Música de dolçaina i tabalet, l'Himne Regional i mascletà quan algú es menja una mentida.
+
+DIVERSOS MÒBILS, UNA PARTIDA
+Un crea la sala i els altres entren amb un codi de 6 lletres. També podeu jugar passant un sol mòbil.
+
+SENSE ANUNCIS NI REGISTRE
+Només un malnom. Partides privades amb codi.
+```
+
 **Palabras clave** (máx. 100, separadas por comas sin espacios)
 ```
 fallas,falles,valencia,fallera,mascleta,trivial,preguntas,mentiras,farol,quiz,casal,ninot
@@ -87,7 +124,7 @@ fallas,falles,valencia,fallera,mascleta,trivial,preguntas,mentiras,farol,quiz,ca
 **Categoría principal:** Juegos › Trivial · **Secundaria:** Juegos › Familiares
 **No marques la categoría «Niños»** (Kids): obligaría a quitar Firebase y complica la revisión. La app es apta para todos igualmente.
 
-**URL de soporte:** `https://TU-PROYECTO.web.app/` · **URL de privacidad:** `https://TU-PROYECTO.web.app/privacidad.html`
+**URL de soporte:** `https://docs.google.com/document/d/1_-odjUy8Dgiw8_ZSuwxg-e3mWfPIHxpeBE_3Nzg18Ag/view` (la misma política: lleva tu correo de contacto) · **URL de privacidad:** `https://docs.google.com/document/d/1_-odjUy8Dgiw8_ZSuwxg-e3mWfPIHxpeBE_3Nzg18Ag/view`
 **Copyright:** `2026 Jose M. Fuentes`
 
 **Compra dentro de la app** (Monetización › Compras dentro de la app)
@@ -101,7 +138,7 @@ fallas,falles,valencia,fallera,mascleta,trivial,preguntas,mentiras,farol,quiz,ca
 **Notas para el revisor** (App Review Information › Notes)
 ```
 ¡Fakeado! Fallas is a family party game (Spanish) about the Fallas festival of Valencia. To test with ONE device: tap "Jugar con un solo móvil", add a second player ("Añadir jugador") and tap "Empezar partida". Players pass the phone in turns: each one types a fake answer, then votes for the true one.
-To test multiplayer: tap "Crear partida" > "Para jugar" on one device and "Unirme a una partida" with the 4-letter code on another.
+To test multiplayer: tap "Crear partida" > "Para jugar" on one device and "Unirme a una partida" with the 6-letter code on another.
 User-generated content is limited to short fake answers inside private rooms that only people with the code can join. Answers are filtered for offensive words and the host can remove any player. There is no chat and no account.
 The in-app purchase "fallas_todo" (0.99 €, non-consumable) unlocks the full question set; it is behind a parental gate (multiplication question). "Restaurar compras" is in "Más preguntas".
 ```
